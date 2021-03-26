@@ -44,11 +44,7 @@ client.on('guildMemberAdd', guildMember => {
 
 
 client.on('message', message => {
-
-    if(message.mentions.members.first()) {
-        return message.channel.send(`${user} apaan ? bingung gw bisa ngapain ? tinggal ketik ***#help*** ntar lu bisa tau gw bisa apa aja`);
-    }
-
+    
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
