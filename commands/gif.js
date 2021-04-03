@@ -14,7 +14,7 @@ module.exports = {
 
         let tokens = message.content.split(' ');
         
-        let keywords = 'coding train';        
+        let keywords = 'tenor';        
         if (tokens.length > 1){
             keywords = tokens.slice(1, tokens.length).join(" ");
         }
