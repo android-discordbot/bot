@@ -6,8 +6,8 @@ module.exports = {
     async execute(message, args ) {
 
         message.channel.send(`Searching...`).then((msg) => {
-            setTimeout(() => msg.delete(), 5000);
-            setTimeout(() => message.delete(), 3000);
+            setTimeout(() => msg.delete(), 2000);
+            setTimeout(() => message.delete(), 2000);
         }).catch((err) => {
             throw err;
         })
