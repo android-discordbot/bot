@@ -4,6 +4,14 @@ module.exports = {
     name: 'gif',
     description: "Sends a gif from tenor",
     async execute(message, args ) {
+
+        message.channel.send(`Searching...`).then((msg) => {
+            setTimeout(() => msg.delete(), 5000);
+            setTimeout(() => message.delete(), 3000);
+        }).catch((err) => {
+            throw err;
+        })
+
         let tokens = message.content.split(' ');
         
         let keywords = 'coding train';        
