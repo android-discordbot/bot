@@ -29,9 +29,9 @@ client.on('ready', () => {
 
     memberCounter(client);
 
-    // client.user.setActivity(Status, {
-    //     type: 'STREAMING/PLAYING/WATCHING',
-    // });
+    client.user.setActivity('Prefix: # | #help', {type: "PLAYING" }).catch(console.error)
+
+    // type: 'STREAMING/PLAYING/WATCHING'
 });
 
 client.on('guildMemberAdd', guildMember => {
