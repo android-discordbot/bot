@@ -94,6 +94,8 @@ client.on('message', message => {
         client.commands.get('hey').execute(message, args);
     } else if (command === 'gif') {
         client.commands.get('gif').execute(message, args);
+    } else if (command === 'invite') {
+        client.commands.get('invite').execute(message, args);
     }
 
 
