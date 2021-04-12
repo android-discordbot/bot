@@ -28,6 +28,8 @@ module.exports = {
             {name: '#weather <lokasinya>', value: 'dukun cuaca'},
             {name: '#meme', value: 'meme dari Reddit (kadang gak bisa karna diblokir su)'},
             {name: '#ticket', value: 'bikin channel private bersama admin'},
+            {name: '#invite', value: 'invite aku ke servermu :)'},
+
 
 
         )
