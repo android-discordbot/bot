@@ -3,6 +3,7 @@ var Scraper = require('images-scraper')
 const google = new Scraper({
     puppeteer: {
         headless: true,
+        args: ["--no-sandbox"]
     }
 })
  
