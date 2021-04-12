@@ -23,17 +23,16 @@ module.exports = {
             {name: '#image <keyword>', value: 'cari gambar di google'},
             {name: '#reactionrole', value: 'pilih role'},
             {name: '#gif <keyword>', value: 'kirim gif dari tenor'},
-            {name: '#hey', value: 'sapa aja lah'},
-            {name: '#avatar', value: 'aduh kepo dah'},
+            {name: '#hey', value: 'sapa sapa aja'},
+            {name: '#avatar', value: 'liat profile pic'},
             {name: '#weather <lokasinya>', value: 'dukun cuaca'},
             {name: '#meme', value: 'meme dari Reddit (kadang gak bisa karna diblokir su)'},
             {name: '#ticket', value: 'bikin channel private bersama admin'},
-            {name: '#stats', value: 'ganti / tambah status bot'},
 
 
         )
         .setImage('https://hackernoon.com/hn-images/1*6Da9jqVrnGsxWilCOBoejg.jpeg')
-        .setFooter('oke  gud :)');
+        .setFooter('kl ada yg ga bisa, yaa sudahlah ;(');
 
         message.channel.send(newEmbed);
 
