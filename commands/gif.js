@@ -5,12 +5,14 @@ module.exports = {
     description: "Sends a gif from tenor",
     async execute(message, args ) {
 
+        // unsend the message
         message.channel.send(`Searching...`).then((msg) => {
             setTimeout(() => msg.delete(), 2000);
             setTimeout(() => message.delete(), 2000);
         }).catch((err) => {
             throw err;
         })
+        // unsend the message
 
         let tokens = message.content.split(' ');
         
@@ -29,6 +31,7 @@ module.exports = {
         const index = Math.floor(Math.random() * json.results.length);
 
         message.channel.send(json.results[index].url);
+        message.channel.send(`Requested by: ${message.author}`);
 
         
     }
