@@ -17,7 +17,7 @@
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
-    "ffmpeg-static": "^4.4.0",
+    "ffmpeg-static": "^4.2.7",
     "fs": "0.0.1-security",
     "got": "^11.8.2",
     "images-scraper": "^6.0.1",
