@@ -6,6 +6,7 @@ module.exports = {
  
         if(!voiceChannel) return message.channel.send("Harus ada di voice channel baru bisa stop stop music orang!");
         await voiceChannel.leave();
+        
         await message.channel.send('Leaving channel :smiling_face_with_tear:')
  
     }

@@ -3,11 +3,11 @@ module.exports = {
     description: "This command bans a member!",
     execute(message, args){
         const target = message.mentions.users.first();
-        if(target){
+        if (target) {
             const memberTarget = message.guild.members.cache.get(target.id);
             memberTarget.ban();
             message.channel.send("User has been banned");
-        }else{
+        } else {
             message.channel.send(`You couldn't ban that member!`);
         }
     }

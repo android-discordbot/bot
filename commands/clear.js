@@ -6,7 +6,7 @@ module.exports = {
         if(isNaN(args[0])) return message.reply("kasih angka woy!");
 
         if(args[0] > 100)return message.reply("gak bisa lebih dari 100 message tot!");
-        if(args[0]< 1)return message.reply("ya jangan 0 juga dong!");
+        if(args[0] < 1)return message.reply("ya jangan 0 juga dong!");
 
         await message.channel.messages.fetch({limit: args[0]}).then(messages =>{
             message.channel.bulkDelete(messages);
