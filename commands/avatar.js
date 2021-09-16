@@ -1,5 +1,3 @@
-const Discord = require("discord.js");
-
 module.exports = {
     name: 'avatar',
     description: "view avatar of the user!",

@@ -1,7 +1,8 @@
 module.exports = {
     name: 'clear',
-    description: "Clear messages!",
-    async execute(message, args){
+    aliases: ['c', 'cl'],
+    description: 'Clear messages!',
+    async execute(message, args, cmd) {
         if(!args[0]) return message.reply("kurang lengkap bos cek lagi ok!");
         if(isNaN(args[0])) return message.reply("kasih angka woy!");
 

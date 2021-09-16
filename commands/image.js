@@ -1,3 +1,6 @@
+// const puppeteer = require('puppeteer-extra')
+// puppeteer.use(require('puppeteer-extra-plugin-repl')())
+
 var Scraper = require('images-scraper')
 
 const google = new Scraper({

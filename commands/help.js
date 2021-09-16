@@ -8,6 +8,8 @@ module.exports = {
         .setURL('https://www.youtube.com/channel/UC_MhnzBFd-YUFcToFCv8Qxw')
         .setDescription('Ni buat yg nyari bisa apa aja gw')
         .addFields(
+            {name: '#play', value: 'ngeplay lagu dari youtube'},
+            {name: '#leave', value: 'buat ngusir bot'},
             {name: '#ping', value: 'cek ping'},
             {name: '#rules', value: 'kirim peraturan server'},
             {name: '#youtube', value: 'kasih link youtube'},
@@ -18,10 +20,8 @@ module.exports = {
             {name: '#mute (tagorangnyasu)', value: 'mute Memeber'},
             {name: '#unmute (tagorangnyasu)', value: 'unmute Memeber'},
             {name: '#help', value: 'list semua command'},
-            {name: '#play', value: 'ngeplay lagu dari youtube'},
-            {name: '#leave', value: 'buat ngusir bot'},
             {name: '#image apa aja', value: 'cari gambar di google'},
-            {name: '#reactionrole', value: 'pilih role (ada 3 guys)'},
+            {name: '#reactionrole', value: 'list role (ada 3 guys)'},
             {name: '#gif apa aja', value: 'kirim gif dari tenor'},
             {name: '#hey', value: 'sapa sapa aja'},
             {name: '#avatar', value: 'liat profile pic, bisa juga kl tag orang'},
@@ -30,6 +30,7 @@ module.exports = {
             {name: '#ticket', value: 'bikin channel private bersama admin'},
             {name: '#invite', value: 'invite aku ke servermu :)'},
             {name: '#stats playing bokep', value: 'ganti status bot | #stats reset'},
+            {name: '#anime hentai', value: 'anime hentai | boobs | lesbian || hug | kiss | slap | punch | wink | pat | kill | cuddle | waifu'},
             )
             .setImage('https://hackernoon.com/hn-images/1*6Da9jqVrnGsxWilCOBoejg.jpeg')
             .setFooter('kl ada yg ga bisa, yaa sudahlah ;(');
