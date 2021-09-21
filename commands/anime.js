@@ -2,13 +2,14 @@ module.exports = {
     name: 'anime',
     description: "sends an anime thingy",
     async execute(message, args, Discord) {
-
+        
         const Anime_Images = require('anime-images-api')
         const API = new Anime_Images()
-
-        const target = message.mentions.users.first();
         
         const query = args.join(' ');
+        
+        // NO KEYWORD
+        if (!query) return message.channel.send(`please enter a keyword`)
 
         // SFW
         if ( query === 'hug' ) {
@@ -101,10 +102,10 @@ module.exports = {
     
             message.channel.send(animeEmbed);
 
-        } 
-        
+        }
+
         // NSFW
-        if ( query === 'hentai' ) {
+        else if ( query === 'hentai' ) {
             let { image } = await API.nsfw.hentai()
 
             // *embed
@@ -135,13 +136,9 @@ module.exports = {
             message.channel.send(animeEmbed);
 
         } else {
-            message.channel.send(`Wrong! try this.. \n NSFW: \`hentai\`, \`boobs\`, \`lesbian\` \n SFW: \`hug\` \`kiss\` \`slap\` \`punch\` \`wink\` \`pat\` \`kill\` \`cuddle\` \`kiss\` \`waifu\` `)
+            message.channel.send(`Wrong! Try this.. \n NSFW: \`hentai\`, \`boobs\`, \`lesbian\` \n SFW: \`hug\` \`kiss\` \`slap\` \`punch\` \`wink\` \`pat\` \`kill\` \`cuddle\` \`kiss\` \`waifu\` `)
         }
         
-        // NO KEYWORD
-        if (!query) {
-            message.channel.send(`please enter a keyword`)
-        }
     }
 
 }
