@@ -6,7 +6,7 @@ module.exports = {
         const Anime_Images = require('anime-images-api')
         const API = new Anime_Images()
 
-        // const target = message.mentions.users.first();
+        const target = message.mentions.users.first();
         
         const query = args.join(' ');
 
@@ -133,11 +133,14 @@ module.exports = {
                 .setImage(image)
     
             message.channel.send(animeEmbed);
-        } 
+
+        } else {
+            message.channel.send(`Wrong! try this.. \n NSFW: \`hentai\`, \`boobs\`, \`lesbian\` \n SFW: \`hug\` \`kiss\` \`slap\` \`punch\` \`wink\` \`pat\` \`kill\` \`cuddle\` \`kiss\` \`waifu\` `)
+        }
         
         // NO KEYWORD
         if (!query) {
-            message.channel.send('kasih keyword dong su')
+            message.channel.send(`please enter a keyword`)
         }
     }
 

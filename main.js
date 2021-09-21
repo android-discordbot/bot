@@ -1,17 +1,13 @@
 const Discord = require('discord.js');
 require('dotenv').config();
 const { resolveSoa } = require('dns');
-
-const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
-
+const fs = require('fs');
+const memberCounter = require('./counters/member-counter');
+const { Recoverable } = require('repl');
 
 const prefix = '#';
 
-const fs = require('fs');
-
-const memberCounter = require('./counters/member-counter');
-
-const { Recoverable } = require('repl');
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
 client.commands = new Discord.Collection();
 
@@ -22,8 +18,6 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-
-
 client.on('ready', () => {
     console.log('Android is online!');
     
@@ -31,7 +25,7 @@ client.on('ready', () => {
     
 });
 
-// welkom
+// !welkom v1
 // client.on('guildMemberAdd', guildMember => {
 //     let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Gak Kenal');
 
@@ -39,22 +33,19 @@ client.on('ready', () => {
 //     guildMember.guild.channels.cache.get('689632454704758863').send(`YO <@${guildMember.user.id}> SUP MEGI! liat rules nya duls ok, -rules di channel commands`)
 // });
     
-// welkom 2
+// !welkom v2
 client.on("guildMemberAdd", member => {
-    let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Gak Kenal');
-    guildMember.roles.add(welcomeRole);
-    
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '🎉•welcome' || 'ᗯeᒪkoᗰ-to-ᗪe-ᑕᒪeᗷ')
     welcomeChannel.send (`Welkom to de cleb yo ${member}`)
 })
 
-// bye
+// !bye
 client.on("guildMemberRemove", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '🎉•welcome' || 'ᗯeᒪkoᗰ-to-ᗪe-ᑕᒪeᗷ')
     welcomeChannel.send (`Selamat tinggal asyu! 👋 ${member}`)
 })
 
-// distube
+// !distube
 const DisTube = require('distube');
 client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
 client.distube
@@ -74,7 +65,7 @@ client.distube
 
 
 client.on('message', message => {
-    
+
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
@@ -95,17 +86,17 @@ client.on('message', message => {
         client.commands.get('anime').execute(message, args, Discord);
     } else if (command === 'sussybaka') {
         client.commands.get('sussybaka').execute(message, args, Discord, client);
-
+        
     } else if (command === 'hey') {
         client.commands.get('hey').execute(message, args);
-    } else if (command == 'ping') {
+    } else if (command === 'ping') {
         client.commands.get('ping').execute(message, args, client);
-    } else if (command == 'clear') {
+    } else if (command === 'clear') {
         client.commands.get('clear').execute(message, args);
     }
     
     // MODS
-    if (command == 'youtube') {
+    if (command === 'youtube') {
         client.commands.get('youtube').execute(message, args)
     } else if (command === 'invite') {
         client.commands.get('invite').execute(message, args, Discord)

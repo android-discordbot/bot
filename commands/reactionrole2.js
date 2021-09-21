@@ -1,7 +1,7 @@
 const { Role } = require("discord.js");
 
 module.exports = {
-    name: 'reactionrole_2',
+    name: 'reactionrole2',
     description: "Sets up a second reaction role message!",
     async execute(message, args, Discord, client) {
         const channel = '819186675576995850';
@@ -10,6 +10,8 @@ module.exports = {
 
         const KONTOLRoleEmoji = '🍆';
         const MEMEKRoleEmoji = '🍑';
+
+        message.delete(message.author);
 
         let embed = new Discord.MessageEmbed()
             .setColor('#FFFF00')

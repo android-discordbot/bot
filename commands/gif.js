@@ -6,15 +6,12 @@ module.exports = {
     async execute(message, args, Discord) {
 
         // *unsending the keywords
-        message.channel.send(`Searching...`).then((msg) => {
-            setTimeout(() => msg.delete(), 2000);
-            setTimeout(() => message.delete(), 2000);
-        }).catch((err) => {
-            throw err;
-        })
-
-
-
+        // message.channel.send(`Searching...`).then((msg) => {
+        //     setTimeout(() => msg.delete(), 2000);
+        //     setTimeout(() => message.delete(), 2000);
+        // }).catch((err) => {
+        //     throw err;
+        // })
 
         let tokens = message.content.split(' ');
         
@@ -35,17 +32,17 @@ module.exports = {
         // let gif = json.results[index].media[0].url;
         
         // *sending gif by regular message
-        // message.channel.send(gif);
+        message.channel.send(gif);
         // message.channel.send(`GIF ${keywords} Requested by: ${message.author}`);
 
 
 
         // *sending gif through embed 
-        let embedgif = new Discord.MessageEmbed()
-        .setColor("RANDOM")
-        .setTitle(`GIF ${keywords}`)
-        .setImage(gif)
-        .setFooter(`Requested by: ${message.author.username}`)
+        // let embedgif = new Discord.MessageEmbed()
+        // .setColor("RANDOM")
+        // .setTitle(`GIF ${keywords}`)
+        // .setImage(gif)
+        // .setFooter(`Requested by: ${message.author.username}`)
 
         message.channel.send(embedgif)
         .then(console.log(json.results[index].media[0].url));

@@ -11,6 +11,8 @@ module.exports = {
         const tuaRoleEmoji = '👴🏻';
         const mudaRoleEmoji = '👦🏽';
 
+        message.delete(message.author);
+        
         let embed = new Discord.MessageEmbed()
             .setColor('#FFFF00')
             .setTitle('Pilih Kaum Anda')

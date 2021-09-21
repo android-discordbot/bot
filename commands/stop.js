@@ -8,7 +8,7 @@ module.exports = {
         if (queue) {
             client.distube.stop(message);
 
-            message.channel.send(`bye i'm out`);
+            message.channel.send(`Bye I'm out biishh .. `);
         } else if (!queue) {
             return;
         }

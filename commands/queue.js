@@ -6,11 +6,11 @@ module.exports = {
 
         let queue = client.distube.getQueue(message);
         
-        if (queue) {
-            message.channel.send('Current queue:\n' + queue.songs.map((song, id) =>
-                `**${id+1}**. \`${song.name}\` - \`${song.formattedDuration}\``
-            ).join("\n"));
-        } else if (!queue) {
+        message.channel.send('Current queue:\n' + queue.songs.map((song, id) =>
+            `**${id+1}**. \`${song.name}\` - \`${song.formattedDuration}\``
+        ).join("\n"));
+
+        if (!queue) {
             return message.channel.send('no songs are currently in the queue');
         }
  

@@ -1,8 +1,7 @@
 module.exports = {
     name: 'clear',
-    aliases: ['c', 'cl'],
-    description: 'Clear messages!',
-    async execute(message, args, cmd) {
+    description: "Clear messages!",
+    async execute(message, args) {
         if(!args[0]) return message.reply("kurang lengkap bos cek lagi ok!");
         if(isNaN(args[0])) return message.reply("kasih angka woy!");
 
@@ -11,6 +10,6 @@ module.exports = {
 
         await message.channel.messages.fetch({limit: args[0]}).then(messages =>{
             message.channel.bulkDelete(messages);
-        })
+        });
     }
 }
