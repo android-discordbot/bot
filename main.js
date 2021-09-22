@@ -140,7 +140,6 @@ client.on('message', message => {
         client.commands.get('loop').execute(message, args, client);
     } 
 
-
 });
 
 client.login(process.env.DISCORD_TOKEN);
