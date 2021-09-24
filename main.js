@@ -26,24 +26,12 @@ client.on('ready', () => {
 });
 
 // !welkom v1
-// client.on('guildMemberAdd', guildMember => {
-//     let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Gak Kenal');
+client.on('guildMemberAdd', guildMember => {
+    // let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Memeber');
+    // guildMember.roles.add(welcomeRole);
 
-//     guildMember.roles.add(welcomeRole);
-//     guildMember.guild.channels.cache.get('689632454704758863').send(`YO <@${guildMember.user.id}> SUP MEGI! liat rules nya duls ok, -rules di channel commands`)
-// });
-    
-// !welkom v2
-client.on("guildMemberAdd", member => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '🎉•welcome' || 'ᗯeᒪkoᗰ-to-ᗪe-ᑕᒪeᗷ')
-    welcomeChannel.send (`Welkom to de cleb yo ${member}`)
-})
-
-// !bye
-client.on("guildMemberRemove", member => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '🎉•welcome' || 'ᗯeᒪkoᗰ-to-ᗪe-ᑕᒪeᗷ')
-    welcomeChannel.send (`Selamat tinggal asyu! 👋 ${member}`)
-})
+    guildMember.guild.channels.cache.get('817394884516118599'|| '777889342701568000').send(`YO ${guildMember} SUP MEGI!`);
+});
 
 // !distube
 const DisTube = require('distube');
@@ -139,6 +127,7 @@ client.on('message', message => {
     } else if (["repeat", "loop"].includes(command)) {
         client.commands.get('loop').execute(message, args, client);
     } 
+
 
 });
 
