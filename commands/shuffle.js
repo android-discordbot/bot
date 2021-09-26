@@ -4,7 +4,7 @@ module.exports = {
     async execute(message, args, client) {
         if (!message.member.voice.channel) return message.channel.send('masuk vc dulu tot');
 
-        client.distube.shuffle(meessage);
+        client.distube.shuffle(message);
         message.channel.send('👍 shuffled');
     }
 }
