@@ -33,6 +33,12 @@ client.on('guildMemberAdd', guildMember => {
     guildMember.guild.channels.cache.get('817394884516118599'|| '777889342701568000').send(`YO ${guildMember} SUP MEGI!`);
 });
 
+// !bye
+// client.on("guildMemberRemove", member => {
+//     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '🎉•welcome' || 'ᗯeᒪkoᗰ-to-ᗪe-ᑕᒪeᗷ')
+//     welcomeChannel.send (`Selamat tinggal asyu! 👋 ${member}`)
+// })
+
 // !distube
 const DisTube = require('distube');
 client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
@@ -49,6 +55,10 @@ client.distube
     .on("addList", (message, queue, playlist) => message.channel.send(
         `Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n`
     ))
+    .on("error", (message, err) => message.channel.send(
+        "An error encountered: " + err
+    ))
+    .on("empty", message => message.channel.send("Channel is empty (⊙_⊙;) Leaving.."))
 
 
 
@@ -115,6 +125,9 @@ client.on('message', message => {
     if (["p", "play"].includes(command)) {
         client.commands.get('play').execute(message, args, client);
 
+    } else if (["playskip", "ps"].includes(command)) {
+        client.commands.get('playskip').execute(message, args,client);
+
     } else if (["st", "dc", "stop"].includes(command)) {
         client.commands.get('stop').execute(message, args,client);
 
@@ -124,10 +137,25 @@ client.on('message', message => {
     } else if (["s", "skip"].includes(command)) {
         client.commands.get('skip').execute(message, args, client);
 
+    } else if (["shuffle", "sf"].includes(command)) {
+        client.commands.get('shuffle').execute(message, args, client);
+
     } else if (["repeat", "loop"].includes(command)) {
         client.commands.get('loop').execute(message, args, client);
-    } 
 
+    } else if (["autoplay", "auto", "ap"].includes(command)) {
+        client.commands.get('autoplay').execute(message, args, client);
+
+    } else if (["pause"].includes(command)) {
+        client.commands.get('pause').execute(message, args, client);
+
+    } else if (["resume", "continue"].includes(command)) {
+        client.commands.get('resume').execute(message, args, client);
+
+    } else if (["seek", "jump"].includes(command)) {
+        client.commands.get('seek').execute(message, args, client);
+
+    }
 
 });
 

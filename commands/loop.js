@@ -5,7 +5,7 @@ module.exports = {
         if (!message.member.voice.channel) return message.channel.send('masuk vc dulu tot');
 
         client.distube.setRepeatMode(message, parseInt(args[0]));
-        return message.channel.send('looping..');
+        return message.channel.send("Looping ..");
  
     }
 }
