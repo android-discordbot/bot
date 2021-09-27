@@ -31,6 +31,7 @@ client.on('guildMemberAdd', guildMember => {
     // guildMember.roles.add(welcomeRole);
 
     guildMember.guild.channels.cache.get('817394884516118599'|| '777889342701568000').send(`YO ${guildMember} SUP MEGI!`);
+
 });
 
 // !bye
@@ -100,8 +101,10 @@ client.on('message', message => {
         client.commands.get('invite').execute(message, args, Discord)
     } else if (command === 'rules') {
         client.commands.get('rules').execute(message, args, Discord)
-    } else if (command === 'help') {
+    } else if (['help', 'cmd', 'commands'].includes(command)) {
         client.commands.get('help').execute(message, args, Discord)
+    } else if (['helpmusic', 'cmdmusic'].includes(command)) {
+        client.commands.get('helpmusic').execute(message, args, Discord)
     } else if (command === 'kick') {
         client.commands.get('kick').execute(message, args);
     } else if (command === 'ban') {
