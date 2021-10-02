@@ -30,29 +30,48 @@ client.on('guildMemberAdd', guildMember => {
     // let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Memeber');
     // guildMember.roles.add(welcomeRole);
 
-    guildMember.guild.channels.cache.get('817394884516118599'|| '777889342701568000').send(`YO ${guildMember} SUP MEGI!`);
+    guildMember.guild.channels.cache.get('777889342701568000').send(`YO ${guildMember} SUP MEGI!`);
 
 });
 
 // !bye
 // client.on("guildMemberRemove", member => {
 //     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '🎉•welcome' || 'ᗯeᒪkoᗰ-to-ᗪe-ᑕᒪeᗷ')
-//     welcomeChannel.send (`Selamat tinggal asyu! 👋 ${member}`)
+//     welcomeChannel.send (`Yes Gud Gud 👋 ${member}`)
 // })
 
 // !distube
 const DisTube = require('distube');
 client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
 client.distube
-    .on("playSong", (message, queue, song) => message.channel.send(
-        `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}\n`
-    ))
+    .on("playSong", (message, queue, song) => {
+        const { MessageEmbed } = require('discord.js');
+        const playingEmbed = new MessageEmbed()
+            .setAuthor('🎵 Now Playing 🎵')
+            .setTitle(`${song.name}`)
+            .setURL(`${song.url}`)
+            .setDescription(`${song.formattedDuration}`)
+            .setTimestamp()
+            .setFooter(`Requested by: ${song.user.username}`)
+        message.channel.send(playingEmbed);
+    })
+
     .on("addSong", (message, queue, song) => message.channel.send(
-        `Added \`${song.name}\` - \`${song.formattedDuration}\` to the queue by ${song.user}`
+        `Added \`${song.name}\` - \`${song.formattedDuration}\` to the queue`
     ))
-    .on("playList", (message, queue, playlist, song) => message.channel.send(
-        `Play \`${playlist.name}\` playlist (${playlist.songs.length} songs).\nRequested by: ${song.user}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n`
-    ))
+
+    .on("playList", (message, queue, playlist, song) => {
+        const { MessageEmbed } = require('discord.js');
+        const playlistEmbed = new MessageEmbed()
+            .setAuthor('Aded Playlist')
+            .setTitle(`${playlist.name}`)
+            .setDescription(`There are ${playlist.songs.length} songs`)
+            .setTimestamp()
+            .setFooter(`Requested by: ${song.user.username}`)
+        message.channel.send(playlistEmbed);
+        message.channel.send(`🎵 Now playing ${song.name} - \`${song.formattedDuration}\`\n`)
+    })
+
     .on("addList", (message, queue, playlist) => message.channel.send(
         `Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n`
     ))
@@ -60,7 +79,6 @@ client.distube
         "An error encountered: " + err
     ))
     .on("empty", message => message.channel.send("Channel is empty (⊙_⊙;) Leaving.."))
-
 
 
 client.on('message', message => {
@@ -135,7 +153,7 @@ client.on('message', message => {
         client.commands.get('stop').execute(message, args,client);
 
     } else if (["q", "queue"].includes(command)) {
-        client.commands.get('queue').execute(message, args, client);
+        client.commands.get('queue').execute(message, args, client, Discord);
 
     } else if (["s", "skip"].includes(command)) {
         client.commands.get('skip').execute(message, args, client);
