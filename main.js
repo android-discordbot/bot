@@ -101,9 +101,7 @@ client.on('message', message => {
         client.commands.get('gif').execute(message, args, Discord);
     } else if (command === 'anime') {
         client.commands.get('anime').execute(message, args, Discord);
-    } else if (command === 'sussybaka') {
-        client.commands.get('sussybaka').execute(message, args, Discord, client);
-        
+         
     } else if (command === 'hey') {
         client.commands.get('hey').execute(message, args);
     } else if (command === 'ping') {

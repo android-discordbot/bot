@@ -27,7 +27,6 @@
     "node-fetch": "^2.6.1",
     "random-puppy": "^1.1.0",
     "request": "^2.88.2",
-    "ultrax": "^1.8.18",
     "weather": "^1.0.4",
     "weather-js": "^2.0.0",
     "youtube-sr": "^4.0.3",
