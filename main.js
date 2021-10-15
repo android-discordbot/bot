@@ -8,37 +8,56 @@ const { Recoverable } = require('repl');
 const prefix = '#';
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
-
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    
-    client.commands.set(command.name, command);
+// !command handling
+const commandFolders = fs.readdirSync('./commands');
+
+for (const folder of commandFolders) {
+    const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+
+    for (const file of commandFiles) {
+        const command = require(`./commands/${folder}/${file}`);
+        client.commands.set(command.name, command);
+    }
 }
+
+client.login(process.env.DISCORD_TOKEN);
 
 client.on('ready', () => {
     console.log('Android is online!');
     
     memberCounter(client);
+});
+
+// !welkom 
+client.on('guildMemberAdd', async guildMember => {
+    let welcomeChannel = guildMember.guild.channels.cache.get('817394884516118599'); 
+    let welcomeChannel2 = guildMember.guild.channels.cache.get('777889342701568000'); 
     
+    if (!welcomeChannel) {
+        welcomeChannel2.send(`${guildMember} welcome to ssta 🙋‍♂️`);
+    } else if (!welcomeChannel2) {
+        welcomeChannel.send(`${guildMember} oy tot, welkom to de cleb yo!!`);
+    } else {
+        return;
+    }
 });
 
-// !welkom v1
-client.on('guildMemberAdd', guildMember => {
-    // let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Memeber');
-    // guildMember.roles.add(welcomeRole);
+// !bye 
+client.on("guildMemberRemove", (member) => {
+    let byeChannel = member.guild.channels.cache.get('817394884516118599'); 
+    let byeChannel2 = member.guild.channels.cache.get('786207984040149002'); 
 
-    guildMember.guild.channels.cache.get('777889342701568000').send(`YO ${guildMember} SUP MEGI!`);
+    if (!byeChannel) {
+        byeChannel2.send(`**${member}** baru aja keluar dari server.. Bye Bye Panteq 👋`);
+    } else if (!byeChannel2) {
+        byeChannel.send(`**${member}** baru aja keluar dari server.. anda tidak bisa jadi sang master 👋`);
+    } else {
+        return;
+    }
 
-});
-
-// !bye
-// client.on("guildMemberRemove", member => {
-//     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '🎉•welcome' || 'ᗯeᒪkoᗰ-to-ᗪe-ᑕᒪeᗷ')
-//     welcomeChannel.send (`Yes Gud Gud 👋 ${member}`)
-// })
+})
 
 // !distube
 const DisTube = require('distube');
@@ -51,6 +70,7 @@ client.distube
             .setTitle(`${song.name}`)
             .setURL(`${song.url}`)
             .setDescription(`${song.formattedDuration}`)
+            .setColor("#7FFF00")
             .setTimestamp()
             .setFooter(`Requested by: ${song.user.username}`)
         message.channel.send(playingEmbed);
@@ -79,103 +99,23 @@ client.distube
         "An error encountered: " + err
     ))
     .on("empty", message => message.channel.send("Channel is empty (⊙_⊙;) Leaving.."))
-
+// !end distube
 
 client.on('message', message => {
-
+    
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const cmd = args.shift().toLowerCase();
 
-    // fun command
-    if (command === 'image') {
-        client.commands.get('image').execute(message, args, Discord)
-    } else if (command === 'avatar') {
-        client.commands.get('avatar').execute(message, args, Discord)
-    } else if (command === 'weather') {
-        client.commands.get('weather').execute(message, args, Discord)
-    } else if (command === 'meme') {
-        client.commands.get('meme').execute(message, args, Discord)
-    } else if (command === 'gif') {
-        client.commands.get('gif').execute(message, args, Discord);
-    } else if (command === 'anime') {
-        client.commands.get('anime').execute(message, args, Discord);
-         
-    } else if (command === 'hey') {
-        client.commands.get('hey').execute(message, args);
-    } else if (command === 'ping') {
-        client.commands.get('ping').execute(message, args, client);
-    } else if (command === 'clear') {
-        client.commands.get('clear').execute(message, args);
-    }
-    
-    // MODS
-    if (command === 'youtube') {
-        client.commands.get('youtube').execute(message, args)
-    } else if (command === 'invite') {
-        client.commands.get('invite').execute(message, args, Discord)
-    } else if (command === 'rules') {
-        client.commands.get('rules').execute(message, args, Discord)
-    } else if (['help', 'cmd', 'commands'].includes(command)) {
-        client.commands.get('help').execute(message, args, Discord)
-    } else if (['helpmusic', 'cmdmusic'].includes(command)) {
-        client.commands.get('helpmusic').execute(message, args, Discord)
-    } else if (command === 'kick') {
-        client.commands.get('kick').execute(message, args);
-    } else if (command === 'ban') {
-        client.commands.get('ban').execute(message, args);
-    } else if (command === 'mute') {
-        client.commands.get('mute').execute(message, args);
-    } else if (command === 'unmute') {
-        client.commands.get('unmute').execute(message, args);
-    } else if (command === 'stats') {
-        client.commands.get('stats').execute(message, args, client);
-        // reactionrole
-    } else if (command === 'reactionrole') {
-        client.commands.get('reactionrole').execute(message, args, Discord, client)
-    } else if (command === 'reactionrole2') {
-        client.commands.get('reactionrole2').execute(message, args, Discord, client)
-    } else if (command === 'reactionrole3') {
-        client.commands.get('reactionrole3').execute(message, args, Discord, client)
-    }
-        
-    // music command
-    if (["p", "play"].includes(command)) {
-        client.commands.get('play').execute(message, args, client);
+    // !aliasses
+    const command = client.commands.get(cmd) || client.commands.find(a => a.aliases && a.aliases.includes(cmd));
 
-    } else if (["playskip", "ps"].includes(command)) {
-        client.commands.get('playskip').execute(message, args,client);
-
-    } else if (["st", "dc", "stop"].includes(command)) {
-        client.commands.get('stop').execute(message, args,client);
-
-    } else if (["q", "queue"].includes(command)) {
-        client.commands.get('queue').execute(message, args, client, Discord);
-
-    } else if (["s", "skip"].includes(command)) {
-        client.commands.get('skip').execute(message, args, client);
-
-    } else if (["shuffle", "sf"].includes(command)) {
-        client.commands.get('shuffle').execute(message, args, client);
-
-    } else if (["repeat", "loop"].includes(command)) {
-        client.commands.get('loop').execute(message, args, client);
-
-    } else if (["autoplay", "auto", "ap"].includes(command)) {
-        client.commands.get('autoplay').execute(message, args, client);
-
-    } else if (["pause"].includes(command)) {
-        client.commands.get('pause').execute(message, args, client);
-
-    } else if (["resume", "continue"].includes(command)) {
-        client.commands.get('resume').execute(message, args, client);
-
-    } else if (["seek", "jump"].includes(command)) {
-        client.commands.get('seek').execute(message, args, client);
-
-    }
-
+	try {
+        command.execute(client, message, args, cmd, Discord);
+	} catch (error) {
+		console.error(error);
+		message.reply('Error lah su');
+        message.channel.send(error);
+	}
 });
-
-client.login(process.env.DISCORD_TOKEN);
