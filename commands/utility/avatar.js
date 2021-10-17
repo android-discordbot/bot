@@ -6,7 +6,6 @@ module.exports = {
 
         let avatar = member.displayAvatarURL({size: 1024})
 
-
         const embed = new Discord.MessageEmbed()
         .setTitle(`${member.username}'s avatar`)
         .setImage(avatar)

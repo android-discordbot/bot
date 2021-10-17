@@ -47,7 +47,7 @@ module.exports = {
 
             // *embed
             const animeEmbed = new Discord.MessageEmbed()
-                .setTitle(`ouch pasti sakit`)
+                .setTitle(`yeees`)
                 .setImage(image)
     
             message.channel.send(animeEmbed);

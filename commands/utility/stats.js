@@ -24,7 +24,7 @@ module.exports = {
             });
 
             return message.channel.send('Status changed succesfully');
-
+            
         } else {
             return message.channel.send('Invalid activity type.');
         }

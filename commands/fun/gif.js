@@ -5,14 +5,6 @@ module.exports = {
     description: "Sends a gif from tenor",
     async execute(client, message, args, cmd, Discord) {
 
-        // *unsending the keywords
-        // message.channel.send(`Searching...`).then((msg) => {
-        //     setTimeout(() => msg.delete(), 2000);
-        //     setTimeout(() => message.delete(), 2000);
-        // }).catch((err) => {
-        //     throw err;
-        // })
-
         let tokens = message.content.split(' ');
         
         let keywords = 'tenor';        
@@ -33,9 +25,6 @@ module.exports = {
         
         // *sending gif by regular message
         message.channel.send(gif);
-        // message.channel.send(`GIF ${keywords} Requested by: ${message.author}`);
-
-
 
         // *sending gif through embed 
         // let embedgif = new Discord.MessageEmbed()
@@ -46,8 +35,6 @@ module.exports = {
 
         message.channel.send(embedgif)
         .then(console.log(json.results[index].media[0].url));
-
-        
     }
 }
 

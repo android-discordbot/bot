@@ -21,13 +21,10 @@ module.exports = {
         
         const image = results[random].url;
         
-        message.channel.send(`Generating Picture...`);
-        
         let embedpic = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .setTitle(`Picture successfuly generated`)
+            .setTitle(`Image of ${query}`)
             .setImage(image)
         message.channel.send(embedpic);
- 
     }
 }
