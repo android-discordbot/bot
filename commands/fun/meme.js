@@ -10,12 +10,11 @@ module.exports = {
         const image = await randomPuppy(random);
 
         const memeEmbed = new Discord.MessageEmbed()
-        .setColor("RANDOM")
-        .setImage(image)
-        .setTitle(`This meme is from r/${random}`)
-        .setURL(`https://reddit.com/r${random}`)
+            .setColor("RANDOM")
+            .setImage(image)
+            .setTitle(`This meme is from r/${random}`)
+            .setURL(`https://reddit.com/r${random}`)
 
         message.channel.send(memeEmbed);
-
     }
 }

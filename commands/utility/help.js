@@ -20,8 +20,9 @@ module.exports = {
                 {name: '#help', value: 'list semua command'},
                 {name: '#helpmusic / #cmdmusic', value: 'list semua command music'},
                 {name: '#image *kebakaran*', value: 'cari gambar di google'},
-                {name: '#reactionrole', value: 'pilih role (ada 3 guys)'},
+                {name: '#reactionrole', value: 'buat pilih role (ada 3)'},
                 {name: '#gif *kebakaran*', value: 'kirim gif dari tenor'},
+                {name: '#giphy *hello*', value: 'cari gif dari giphy'},
                 {name: '#hey', value: 'sapa sapa aja'},
                 {name: '#avatar', value: 'liat profile pic, bisa juga kl tag orang'},
                 {name: '#weather *jakarta*', value: 'dukun cuaca'},
@@ -29,12 +30,12 @@ module.exports = {
                 {name: '#ticket', value: 'bikin channel private bersama admin'},
                 {name: '#invite', value: 'invite aku ke servermu :)'},
                 {name: '#stats playing bokep', value: 'ganti status bot | #stats reset'},
+                {name: '#gtn', value: 'maen tebak angka'},
+                {name: '#emojify *hai*', value: 'ubah kata menjadi emoji'},
                 )
             .setImage('https://hackernoon.com/hn-images/1*6Da9jqVrnGsxWilCOBoejg.jpeg')
             .setFooter('kl ada yg ga bisa, yaa sudahlah ;(');
 
         message.channel.send(newEmbed);
-
     }
-
 }

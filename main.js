@@ -56,6 +56,5 @@ client.on('message', message => {
 	} catch (error) {
 		console.error(error);
 		message.reply('Error lah su');
-        message.channel.send(error);
 	}
 });

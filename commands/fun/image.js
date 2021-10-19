@@ -1,4 +1,4 @@
-var Scraper = require('images-scraper')
+var Scraper = require('images-scraper');
 
 const google = new Scraper({
     puppeteer: {
@@ -9,6 +9,7 @@ const google = new Scraper({
  
 module.exports = {
     name: 'image',
+    aliases: ['i'],
     description: "Sends an image from google",
     async execute(client, message, args, cmd, Discord) {
         const query = args.join(" ");
@@ -23,7 +24,7 @@ module.exports = {
         
         let embedpic = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .setTitle(`Image of ${query}`)
+            .setTitle(`Image of *${query}*`)
             .setImage(image)
         message.channel.send(embedpic);
     }
