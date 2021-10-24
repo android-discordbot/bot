@@ -6,9 +6,10 @@ module.exports = async (client) => {
         const { MessageEmbed } = require('discord.js');
         const playingEmbed = new MessageEmbed()
             .setAuthor('🎵 Now Playing 🎵')
-            .setTitle(`${song.name}`)
-            .setURL(`${song.url}`)
-            .setDescription(`${song.formattedDuration}`)
+            .setTitle(song.name)
+            .setURL(song.url)
+            .setThumbnail(song.thumbnail)
+            .setDescription(song.formattedDuration)
             .setColor("#7FFF00")
             .setTimestamp()
             .setFooter(`Requested by: ${song.user.username}`)
