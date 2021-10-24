@@ -2,10 +2,11 @@ const Discord = require('discord.js');
 require('dotenv').config();
 const { resolveSoa } = require('dns');
 const fs = require('fs');
+const DisTube = require('distube');
 const memberCounter = require('./client/member-counter');
-const welcomeMember = require('./client/welcome-message');
-const memberRemoved = require('./client/bye-message');
-const distubeClient = require('./client/distube');
+const welcomeMessage = require('./client/welcome-message');
+const goodbyeMessage = require('./client/goodbye-message');
+const distubeClient = require('./client/distube-client');
 const { Recoverable } = require('repl');
 
 const prefix = '#';
@@ -34,13 +35,13 @@ client.on('ready', () => {
 });
 
 // !welkom 
-welcomeMember(client);
+welcomeMessage(client);
 
 // !bye 
-memberRemoved(client);
+goodbyeMessage(client);
 
 // !distube
-distubeClient(client);
+distubeClient(client, Discord, DisTube);
 
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
