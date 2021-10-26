@@ -20,10 +20,12 @@ module.exports = async (client, Discord, DisTube) => {
 
     .on("playList", (message, queue, playlist, song) => {
         const playlistEmbed = new Discord.MessageEmbed()
-            .setAuthor('Aded Playlist')
-            .setTitle(`${playlist.name}`)
+            .setAuthor('Added Playlist')
+            .setTitle(playlist.name)
+			.setColor("#7FFF00")
+			.setThumbnail(song.thumbnail)
             .setDescription(`There are ${playlist.songs.length} songs`)
-            .addFields({name: `🎵 Now playing ${song.name} - \`${song.formattedDuration}\``, value: ' '})
+			.addFields({name: `🎵 Now playing ${song.name} - \`${song.formattedDuration}\``, value: `\u200b`})
             .setTimestamp()
             .setFooter(`Requested by: ${song.user.username}`)
         message.channel.send(playlistEmbed);
@@ -33,7 +35,14 @@ module.exports = async (client, Discord, DisTube) => {
         message.channel.send(`Added **${playlist.name}** playlist \`${playlist.songs.length} songs\` to queue`);
     })
 
-    .on("error", (message, err) => message.channel.send("An error encountered: \n" + err))
+    .on("error", (message, err) => {
+		const errEmbed = new Discord.MessageEmbed()
+			.setTitle('An Error Encountered')
+			.setColor('RED')
+			.addFields({name: err, value: `\u200b`})
+			.setTimestamp()	
+		message.channel.send(errEmbed);
+	})
 
     .on("empty", message => message.channel.send(`Channel is empty, so I'm Leaving.. 😢`));
 }
