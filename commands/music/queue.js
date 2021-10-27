@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
     name: 'queue',
     aliases: ['q'],
@@ -9,7 +7,29 @@ module.exports = {
         
         let server_queue = client.distube.getQueue(message);
 
-        if (!server_queue|| !server_queue.songs.length) return message.channel.send('no songs are currently in the queue');
+        if (!server_queue|| !server_queue.songs.length) return message.channel.send('Queue is empty! 📪');
+
+        // queue funtion
+        function generateQueueEmbed(message, queue) {
+            const embeds = [];
+            let k = 10;
+            for (let i = 0; i < queue.length; i += 10) {
+                const current = queue.slice(i, k);
+                let j = i;
+                k += 10;
+                const info = current.map((track) => `**${++j}**. [${track.name}](${track.url}) - \`${track.formattedDuration}\``).join("\n\n");
+        
+                const embed = new Discord.MessageEmbed()
+                    .setTitle("Song Queue \n")
+                    .setColor("#7FFF00")
+                    .setDescription(`${info}`)
+                    .setTimestamp()
+                    .setFooter(`Queue Duration: ${server_queue.formattedDuration}`)
+                embeds.push(embed);
+            }
+            return embeds;
+        } 
+        
 
         try {
             let currentPage = 0;
@@ -51,22 +71,3 @@ module.exports = {
         }       
     }
 }
-
-function generateQueueEmbed(message, queue) {
-    const embeds = [];
-    let k = 10;
-    for (let i = 0; i < queue.length; i += 10) {
-        const current = queue.slice(i, k);
-        let j = i;
-        k += 10;
-        const info = current.map((track) => `**${++j}**. [${track.name}](${track.url}) - ${track.formattedDuration}`).join("\n\n");
-
-        const embed = new MessageEmbed()
-            .setTitle("Song Queue \n")
-            .setColor("#7FFF00")
-            .setDescription(`${info}`)
-            .setTimestamp();
-        embeds.push(embed);
-    }
-    return embeds;
-} 

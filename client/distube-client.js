@@ -24,8 +24,11 @@ module.exports = async (client, Discord, DisTube) => {
             .setTitle(playlist.name)
 			.setColor("#7FFF00")
 			.setThumbnail(song.thumbnail)
-            .setDescription(`There are ${playlist.songs.length} songs`)
-			.addFields({name: `🎵 Now playing ${song.name} - \`${song.formattedDuration}\``, value: `\u200b`})
+            .setDescription(`Playlist Contains: ${playlist.songs.length} songs \n Playlist Duration: ${playlist.formattedDuration}`)
+			.addFields(
+                {name: `\u200b`, value: `\u200b`},
+                {name: `🎵 Now playing ${song.name}`, value: `song length: \`${song.formattedDuration}\``}
+                )
             .setTimestamp()
             .setFooter(`Requested by: ${song.user.username}`)
         message.channel.send(playlistEmbed);
@@ -43,6 +46,8 @@ module.exports = async (client, Discord, DisTube) => {
 			.setTimestamp()	
 		message.channel.send(errEmbed);
 	})
+
+    .on("finish", message => message.channel.send(`Yes I've Finnished the queue`))
 
     .on("empty", message => message.channel.send(`Channel is empty, so I'm Leaving.. 😢`));
 }
