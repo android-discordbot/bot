@@ -7,6 +7,5 @@ module.exports = {
 
         client.distube.setRepeatMode(message, parseInt(args[0]));
         return message.channel.send("Looping ..");
- 
     }
 }

@@ -22,7 +22,6 @@ module.exports = {
                 {name: '#image *kebakaran*', value: 'cari gambar di google'},
                 {name: '#reactionrole', value: 'buat pilih role (ada 3)'},
                 {name: '#gif *kebakaran*', value: 'kirim gif dari tenor'},
-                {name: '#giphy *hello*', value: 'cari gif dari giphy'},
                 {name: '#hey', value: 'sapa sapa aja'},
                 {name: '#avatar', value: 'liat profile pic, bisa juga kl tag orang'},
                 {name: '#weather *jakarta*', value: 'dukun cuaca'},
