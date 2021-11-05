@@ -20,9 +20,10 @@ module.exports = {
                 const info = current.map((track) => `**${++j}**. [${track.name}](${track.url}) - \`${track.formattedDuration}\``).join("\n\n");
         
                 const embed = new Discord.MessageEmbed()
-                    .setTitle("Song Queue \n")
+                    .setAuthor(message.guild.name, message.guild.iconURL())
+                    .setTitle('Song Queue')
                     .setColor("#7FFF00")
-                    .setDescription(`${info}`)
+                    .setDescription(info)
                     .setTimestamp()
                     .setFooter(`Queue Duration: ${server_queue.formattedDuration}`)
                 embeds.push(embed);
@@ -36,10 +37,10 @@ module.exports = {
             const embeds = generateQueueEmbed(message, server_queue.songs);
             const queueEmbed = await message.channel.send(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
             await queueEmbed.react("⬅️");
-            await queueEmbed.react("⏹");
+            await queueEmbed.react("❌");
             await queueEmbed.react("➡️");
 
-            const filter = (reaction, user) => ["⬅️", "⏹", "➡️"].includes(reaction.emoji.name) && message.author.id === user.id;
+            const filter = (reaction, user) => ["⬅️", "❌", "➡️"].includes(reaction.emoji.name) && message.author.id === user.id;
             const collector = queueEmbed.createReactionCollector(filter);
 
             collector.on("collect", async (reaction, user) => {

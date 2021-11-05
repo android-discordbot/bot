@@ -1,12 +1,4 @@
-const express = require("express");
-const app = express();
-const port = 3000;
-
-app.get("/", (req, res) => res.send(`<h1>Hello World!</h1> \n <p>This is a webserver for the discord bot</p>`));
-
-app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
-
-// !Bot Code
+require('./web/app');
 const Discord = require('discord.js');
 require('dotenv').config();
 const { resolveSoa } = require('dns');
@@ -18,7 +10,7 @@ const goodbyeMessage = require('./client/goodbye-message');
 const distubeClient = require('./client/distube-client');
 const { Recoverable } = require('repl');
 
-const prefix = '#';
+const prefix = process.env.PREFIX;
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 client.commands = new Discord.Collection();

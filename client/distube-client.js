@@ -47,7 +47,7 @@ module.exports = async (client, Discord, DisTube) => {
 		message.channel.send(errEmbed);
 	})
 
-    .on("finish", message => message.channel.send(`Yes I've Finnished the queue`))
+    .on("finish", message => message.channel.send(`Yey I've Finnished the queue`))
 
     .on("empty", message => message.channel.send(`Channel is empty, so I'm Leaving.. 😢`));
 }
