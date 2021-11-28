@@ -6,8 +6,11 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.set('views', 'web');
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('web'));
+
 app.get("/", (req, res) => {
     res.render('home');
 });
 
-app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Listening http://localhost:${port}`));

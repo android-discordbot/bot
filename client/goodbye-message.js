@@ -9,6 +9,6 @@ module.exports = async (client) => {
             byeChannel.send(`**${member}** baru aja keluar dari server.. anda tidak bisa jadi sang master 👋`);
         } else {
             return;
-        }
-    })
-}
+        };
+    });
+};

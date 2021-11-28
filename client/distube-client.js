@@ -27,7 +27,7 @@ module.exports = async (client, Discord, DisTube) => {
             .setDescription(`Playlist Contains: ${playlist.songs.length} songs \n Playlist Duration: ${playlist.formattedDuration}`)
 			.addFields(
                 {name: `\u200b`, value: `\u200b`},
-                {name: `🎵 Now playing ${song.name}`, value: `song length: \`${song.formattedDuration}\``}
+                {name: `🎵  Now playing the first song  🎵`, value: `${song.name} - \`${song.formattedDuration}\``}
                 )
             .setTimestamp()
             .setFooter(`Requested by: ${song.user.username}`)
@@ -50,4 +50,4 @@ module.exports = async (client, Discord, DisTube) => {
     .on("finish", message => message.channel.send(`Yey I've Finnished the queue`))
 
     .on("empty", message => message.channel.send(`Channel is empty, so I'm Leaving.. 😢`));
-}
+};

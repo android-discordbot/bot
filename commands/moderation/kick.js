@@ -9,6 +9,6 @@ module.exports = {
             message.channel.send("User has been kicked");
         } else {
             message.channel.send(`You couldn't kick that member!`);
-        }
-    }
-}
+        };
+    },
+};

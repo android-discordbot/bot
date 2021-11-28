@@ -6,5 +6,5 @@ module.exports = {
 
         client.distube.pause(message);
         message.channel.send("music is being paused");
-    }
-}
+    },
+};

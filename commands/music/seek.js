@@ -7,5 +7,5 @@ module.exports = {
 
         const time = Number(args[0]);
         client.distube.seek(message, time);
-    }
-}
+    },
+};

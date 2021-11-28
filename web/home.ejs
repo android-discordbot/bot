@@ -5,16 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Android | Home</title>
-    <style>
-        body {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            background-color: rgb(152, 165, 133);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Android</h1>
-    <h3>Discord Bot</h3>
-    <p>This is just android discord bot home page</p>
+    <nav>
+        <h3>Android | Discord Bot </h3>
+        <p>Page for the details about each commands</p>
+    </nav>
+    
+    
+    <div class="dropdown">
+        <h3 class="dropdown-title">help</h3>
+
+        <div class="dropdown-content">
+            <p class="snippet">
+                Description: show all of the commands in embed form <br>
+                Aliases: h <br>
+                Example: <%= process.env.PREFIX %>help
+            </p>
+        </div>
+    </div> 
+
+    <div class="dropdown">
+        <h3 class="dropdown-title">hey</h3>
+
+        <div class="dropdown-content">
+            <p class="snippet">
+                Description: say hai command <br>
+                Aliases: hey <br>
+                Example: <%= process.env.PREFIX %>hey
+            </p>
+        </div>
+    </div> 
 </body>
 </html>

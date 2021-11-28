@@ -38,7 +38,7 @@ module.exports = {
                 }
             } else {
                 return;
-            }
+            };
         });
 
 
@@ -57,8 +57,8 @@ module.exports = {
                 }
             } else {
                 return;
-            }
+            };
         });
 
-    }
-}
+    },
+};

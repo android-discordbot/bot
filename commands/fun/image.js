@@ -4,8 +4,8 @@ const google = new Scraper({
     puppeteer: {
         headless: true,
         args: ['--no-sandbox']
-    }
-})
+    },
+});
  
 module.exports = {
     name: 'image',
@@ -27,5 +27,5 @@ module.exports = {
             .setTitle(`Image of *${query}*`)
             .setImage(image)
         message.channel.send(embedpic);
-    }
-}
+    },
+};

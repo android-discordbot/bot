@@ -12,6 +12,6 @@ module.exports = {
             message.channel.send(`Skipping..`);
         } else if (!queue) {
             return;
-        }
-    }
-}
+        };
+    },
+};

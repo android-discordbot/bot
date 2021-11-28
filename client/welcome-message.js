@@ -9,6 +9,6 @@ module.exports = async (client) => {
             welcomeChannel.send(`${guildMember} oy tot, welkom to de cleb yo!!`);
         } else {
             return;
-        }
-    })
-}
+        };
+    });
+};

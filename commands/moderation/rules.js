@@ -1,6 +1,6 @@
 module.exports = {
     name: 'rules',
-    description: "Embeds!",
+    description: "Rules in General",
     execute(client, message, args, cmd, Discord) {
         const newEmbed = new Discord.MessageEmbed()
             .setColor('#12A5F1')
@@ -16,5 +16,5 @@ module.exports = {
             .setFooter('Baca Peraturannya Panteq');
 
         message.channel.send(newEmbed);
-    }
-}
+    },
+};

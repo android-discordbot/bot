@@ -7,5 +7,5 @@ module.exports = {
 
         client.distube.resume(message);
         message.channel.send("continuing the stream (●'◡'●)");
-    }
-}
+    },
+};

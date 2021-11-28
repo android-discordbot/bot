@@ -7,5 +7,5 @@ module.exports = {
 
         const song = args.join(' ');
         client.distube.playSkip(message, song);
-    }
-}
+    },
+};

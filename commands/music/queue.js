@@ -9,7 +9,7 @@ module.exports = {
 
         if (!server_queue|| !server_queue.songs.length) return message.channel.send('Queue is empty! 📪');
 
-        // queue funtion
+        // queue function
         function generateQueueEmbed(message, queue) {
             const embeds = [];
             let k = 10;
@@ -20,17 +20,16 @@ module.exports = {
                 const info = current.map((track) => `**${++j}**. [${track.name}](${track.url}) - \`${track.formattedDuration}\``).join("\n\n");
         
                 const embed = new Discord.MessageEmbed()
-                    .setAuthor(message.guild.name, message.guild.iconURL())
-                    .setTitle('Song Queue')
+                    .setAuthor(`${message.guild.name} | Song Queue`, message.guild.iconURL())
                     .setColor("#7FFF00")
                     .setDescription(info)
                     .setTimestamp()
                     .setFooter(`Queue Duration: ${server_queue.formattedDuration}`)
                 embeds.push(embed);
-            }
+            };
             return embeds;
-        } 
-        
+        };
+
 
         try {
             let currentPage = 0;
@@ -45,30 +44,30 @@ module.exports = {
 
             collector.on("collect", async (reaction, user) => {
                 try {
-                if (reaction.emoji.name === "➡️") {
-                    if (currentPage < embeds.length - 1) {
-                        currentPage++;
-                        queueEmbed.edit(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
-                    }
-                } else if (reaction.emoji.name === "⬅️") {
-                    if (currentPage !== 0) {
-                        --currentPage;
-                        queueEmbed.edit(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
-                    }
-                } else {
-                    collector.stop();
-                    reaction.message.reactions.removeAll();
-                    
-                }
-                await reaction.users.remove(message.author.id);
+                    if (reaction.emoji.name === "➡️") {
+                        if (currentPage < embeds.length - 1) {
+                            currentPage++;
+                            queueEmbed.edit(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
+                        }
+                    } else if (reaction.emoji.name === "⬅️") {
+                        if (currentPage !== 0) {
+                            --currentPage;
+                            queueEmbed.edit(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
+                        }
+                    } else {
+                        collector.stop();
+                        reaction.message.reactions.removeAll();
+                        
+                    };
+                    await reaction.users.remove(message.author.id);
                 } catch {
                     console.log();
                     return message.channel.send("Error su");
-                }
+                };
             });
         } catch {
             console.log();
             return message.channel.send("Ada Error SAT");
-        }       
-    }
-}
+        };
+    },
+};

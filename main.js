@@ -4,11 +4,11 @@ require('dotenv').config();
 const { resolveSoa } = require('dns');
 const fs = require('fs');
 const DisTube = require('distube');
+const { Recoverable } = require('repl');
 const memberCounter = require('./client/member-counter');
 const welcomeMessage = require('./client/welcome-message');
 const goodbyeMessage = require('./client/goodbye-message');
 const distubeClient = require('./client/distube-client');
-const { Recoverable } = require('repl');
 
 const prefix = process.env.PREFIX;
 
@@ -24,8 +24,8 @@ for (const folder of commandFolders) {
     for (const file of commandFiles) {
         const command = require(`./commands/${folder}/${file}`);
         client.commands.set(command.name, command);
-    }
-}
+    };
+};
 
 client.login(process.env.DISCORD_TOKEN);
 
@@ -56,7 +56,6 @@ client.on('message', message => {
 	try {
         command.execute(client, message, args, cmd, Discord);
 	} catch (error) {
-		console.error(error);
-		message.reply('Error lah su');
-	}
+		message.reply('salah woi');
+	};
 });

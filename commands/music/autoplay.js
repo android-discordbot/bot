@@ -10,5 +10,5 @@ module.exports = {
         
         let mode = client.distube.toggleAutoplay(message);
         message.channel.send("Set autoplay mode to `" + (mode ? "On" : "Off") + "`");
-    }
-}
+    },
+};

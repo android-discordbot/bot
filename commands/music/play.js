@@ -10,5 +10,5 @@ module.exports = {
         if (!music) return message.channel.send('bisa kasih nama lagunya atau bisa juga kasih link');
 
         client.distube.play(message, music);
-    }
-}
+    },
+};

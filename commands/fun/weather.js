@@ -5,10 +5,10 @@ module.exports = {
     description: "sends a weather forecast",
     execute(client, message, args, cmd, Discord) {
 
-        weather.find({search: args.join(" "), degreeType: 'C'}, function (error, result){
+        weather.find({search: args.join(" "), degreeType: 'C'}, function (error, result) {
             // 'C' can be changed to 'F' for farneheit results
             if (error) return message.channel.send(error);
-            if (!args[0]) return message.channel.send('Please specify a location')
+            if (!args[0]) return message.channel.send('Please specify a location');
 
             if (result === undefined || result.length === 0) return message.channel.send('**Invalid** location');
 
@@ -27,7 +27,7 @@ module.exports = {
                 .addField('Feels like', `${current.feelslike}°`, true)
                 .addField('Humidity', `${current.humidity}%`, true)
 
-            message.channel.send(weatherinfo)
-        })        
-    }
-}
+            message.channel.send(weatherinfo);
+        });
+    },
+};

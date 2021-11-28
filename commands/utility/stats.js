@@ -3,6 +3,8 @@ module.exports = {
     description: "add or change the stats of the bot",
     execute(client, message, args, cmd, Discord) {
 
+        const prefix = process.env.PREFIX;
+
         // here you tell the bot to choose the kind of activity
         if (args[0] === "playing") {
             types = 0;
@@ -18,8 +20,8 @@ module.exports = {
 
             client.user.setPresence({
                 activity: { 
-                    name: '#help',
-                    type: 'LISTENING',
+                    name: `${prefix}help`,
+                    type: 'WATCHING',
                 },
             });
 
@@ -27,7 +29,7 @@ module.exports = {
             
         } else {
             return message.channel.send('Invalid activity type.');
-        }
+        };
 
         // here you tell the bot what the activity is
         args.shift();

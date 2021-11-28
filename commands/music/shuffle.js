@@ -7,5 +7,5 @@ module.exports = {
 
         client.distube.shuffle(message);
         message.channel.send('👍 shuffled');
-    }
-}
+    },
+};

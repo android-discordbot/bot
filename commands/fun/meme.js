@@ -16,5 +16,5 @@ module.exports = {
             .setURL(`https://reddit.com/r${random}`)
 
         message.channel.send(memeEmbed);
-    }
-}
+    },
+};

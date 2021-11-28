@@ -12,7 +12,6 @@ module.exports = {
             message.channel.send(`Bye I'm out biishh .. `);
         } else if (!queue) {
             return;
-        }
- 
-    }
-}
+        };
+    },
+};

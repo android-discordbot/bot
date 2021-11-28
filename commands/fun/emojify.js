@@ -3,7 +3,6 @@ module.exports = {
     aliases: ['emo'],
     description: "make any sentence out of emojis",
     execute(client, message, args, cmd, Discord) {
-
         let sentence = '';
 
         let chars = {
@@ -22,15 +21,15 @@ module.exports = {
             "char÷": ':heavy_division_sign:',
             "char#": ':hash:',
             "char!": `:exclamation:`
-        }
+        };
         
         for (let e of args.join(' ')) {
-            if(/([a-z])/gim.test(e)) sentence += `:regional_indicator_${e.toLowerCase()}:`
-            else if(/\s/.test(e)) sentence += ':blue_square:'
-            else if(/([1-9])/.test(e) || ['+', '-', '*', '#', '!', '÷'].includes(e)) sentence += chars[`char${e}`]
-            else sentence += e
-        }
+            if (/([a-z])/gim.test(e)) sentence += `:regional_indicator_${e.toLowerCase()}:`;
+            else if (/\s/.test(e)) sentence += ':blue_square:';
+            else if (/([1-9])/.test(e) || ['+', '-', '*', '#', '!', '÷'].includes(e)) sentence += chars[`char${e}`];
+            else sentence += e;
+        };
 
         message.channel.send(sentence);
-    }
-}
+    },
+};
