@@ -20,5 +20,5 @@ module.exports = {
 
         // *sending gif by regular message
         message.channel.send(gif);
-    }
-}
+    },
+};
