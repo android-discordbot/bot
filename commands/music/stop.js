@@ -1,7 +1,7 @@
 module.exports = {
     name: 'stop',
     aliases: ['st', 'dc'],
-    description: 'stop the music and leave the channel',
+    description: 'stop the music and leave the voice channel',
     async execute(client, message, args, cmd, Discord) {
         if (!message.member.voice.channel) return message.channel.send('masuk vc dulu tot');
         let queue = await client.distube.getQueue(message);

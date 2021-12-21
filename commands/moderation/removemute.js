@@ -3,7 +3,7 @@ const mute = require("./mute");
 module.exports = {
     name: 'removemute',
     aliases: [],
-    description: "This unmutes a member if main role doesn't exist in the list",
+    description: "This unmutes a member if main role doesn't exist in the code",
     execute(client, message, args, cmd, Discord) {
         const target = message.guild.member(message.mentions.users.first());
         if (target) {

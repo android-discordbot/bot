@@ -9,9 +9,9 @@
   "author": "Udin",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.4.0",
+    "@discordjs/opus": "^0.7.0",
     "anime-images-api": "^2.0.0",
-    "discord-player": "^5.1.0",
+    "discord-player": "^5.2.0",
     "discord-ytdl-core": "^5.0.4",
     "discord.js": "^12.5.1",
     "distube": "^2.8.18",
@@ -29,7 +29,7 @@
     "random-puppy": "^1.1.0",
     "weather-js": "^2.0.0",
     "yt-search": "^2.10.2",
-    "ytdl-core": "^4.9.1"
+    "ytdl-core": "^4.9.2"
   },
   "devDependencies": {
     "eslint": "^8.2.0"

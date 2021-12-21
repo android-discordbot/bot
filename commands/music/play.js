@@ -1,7 +1,7 @@
 module.exports = {
     name: 'play',
     aliases: ['p'],
-    description: 'Play a song and queue system',
+    description: 'Play a song',
     async execute(client, message, args, cmd, Discord) {
         if (!message.member.voice.channel) return message.channel.send('masuk vc dulu tot');
 
