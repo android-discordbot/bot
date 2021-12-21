@@ -1,4 +1,4 @@
-const web = require('./web/app');
+// const web = require('./web/app');
 const Discord = require('discord.js');
 require('dotenv').config();
 const { resolveSoa } = require('dns');
@@ -27,8 +27,8 @@ for (const folder of commandFolders) {
     };
 };
 
-// !webserver
-web(client);
+// // !webserver
+// web(client);
 
 client.login(process.env.DISCORD_TOKEN);
 
