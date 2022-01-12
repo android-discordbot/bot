@@ -1,6 +1,6 @@
-// const web = require('./web/app');
-const Discord = require('discord.js');
 require('dotenv').config();
+require('./web/app');
+const Discord = require('discord.js');
 const { resolveSoa } = require('dns');
 const fs = require('fs');
 const DisTube = require('distube');
@@ -27,13 +27,10 @@ for (const folder of commandFolders) {
     };
 };
 
-// // !webserver
-// web(client);
-
 client.login(process.env.DISCORD_TOKEN);
 
 client.on('ready', () => {
-    console.log('Android is online!');
+    console.log(`${client.user.username} is online!`);
     
     memberCounter(client);
 });

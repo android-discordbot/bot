@@ -1,5 +1,5 @@
 module.exports = async (client, Discord, DisTube) => {
-    client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
+    client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true, leaveOnFinish: true });
     client.distube
     .on("playSong", (message, queue, song) => {
         const playingEmbed = new Discord.MessageEmbed()
@@ -47,7 +47,9 @@ module.exports = async (client, Discord, DisTube) => {
 		message.channel.send(errEmbed);
 	})
 
-    .on("finish", message => message.channel.send(`Yey I've Finnished the queue`))
+    .on("finish", message => {
+		message.channel.send(`Yey I've Finnished the queue, so I'm leaving the voice channel now 😁`);
+	})
 
     .on("empty", message => message.channel.send(`Channel is empty, so I'm Leaving.. 😢`));
 };

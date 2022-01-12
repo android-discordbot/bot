@@ -1,12 +1,10 @@
-const { Role } = require("discord.js");
-
 module.exports = {
     name: 'reactionrole2',
     description: "Sets up a second reaction role message!",
     async execute(client, message, args, cmd, Discord) {
         const channel = '819186675576995850';
-        const KONTOLRole = message.guild.roles.cache.find(role => role.name === "KONTOL");
-        const MEMEKRole = message.guild.roles.cache.find(role => role.name === "MEMEK");
+        const KONTOLRole = message.guild.roles.cache.get("821029714709708800");
+        const MEMEKRole = message.guild.roles.cache.get("821029928622751765");
 
         const KONTOLRoleEmoji = '🍆';
         const MEMEKRoleEmoji = '🍑';
@@ -40,8 +38,6 @@ module.exports = {
                 return;
             };
         });
-
-
 
         client.on('messageReactionRemove', async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();

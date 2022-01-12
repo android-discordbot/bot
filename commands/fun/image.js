@@ -1,9 +1,9 @@
-var Scraper = require('images-scraper');
+const Scraper = require('images-scraper');
 
 const google = new Scraper({
     puppeteer: {
         headless: true,
-        args: ['--no-sandbox']
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
     },
 });
  
@@ -15,7 +15,7 @@ module.exports = {
         const query = args.join(" ");
         if (!query) return message.channel.send('Please enter a keyword');
  
-        var random = Math.floor((Math.random() * 90) + 0);
+        const random = Math.floor((Math.random() * 90) + 0);
         console.log(random);
         
         const results = await google.scrape(query, 100);

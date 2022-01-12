@@ -10,7 +10,7 @@ module.exports = {
             let muteRole = message.guild.roles.cache.find(role => role.name === 'Mute');
 
             if (!mainRole2 && !mainRole) 
-            return message.channel.send("The main role doesn't exist in my list \nYou can still unmute that person by using 'removemute' instead");
+            return message.channel.send("The main role doesn't exist in my list \nYou can still unmute that person by using `#removemute` instead");
                         
             let memberTarget = message.guild.members.cache.get(target.id);
 
