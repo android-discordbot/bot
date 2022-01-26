@@ -17,7 +17,7 @@ module.exports = {
                     {name: `\`${prefix}stop\` \`${prefix}dc\` \`${prefix}st\``, value: 'buat ngusir bot'},
                     {name: `\`${prefix}queue\` \`${prefix}q\``, value: 'liat antrian'},
                     {name: `\`${prefix}skip\` \`${prefix}s\` \`${prefix}sk\``, value: 'skip skip'},
-                    {name: `e \`${prefix}sf\``, value: 'mengacak ngacak antrian'},
+                    {name: `\`${prefix}sf\``, value: 'mengacak ngacak antrian'},
                     {name: `\`${prefix}loop\` \`${prefix}repeat\``, value: 'looping lagu (gak bisa dimatiin)'},
                     {name: `\`${prefix}autoplay\` \`${prefix}auto\` \`${prefix}ap\``, value: 'autoplay lagu kl antrian abis'},
                     {name: `\`${prefix}pause\``, value: 'pause lagunya'},
