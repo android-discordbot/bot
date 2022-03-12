@@ -2,7 +2,7 @@ module.exports = async (client, Discord, DisTube) => {
     client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
     client.distube
         .on("playSong", (message, queue, song) => {
-            message.channel.send(`🎵  Playing **${song.name}**  🎵`);
+            message.channel.send(`🎵  Playing ***${song.name}***  🎵`);
         })
 
         .on("addSong", (message, queue, song) => { 
