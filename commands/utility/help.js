@@ -13,11 +13,12 @@ module.exports = {
                 .setDescription('Ni buat yg nyari music command gw')
                 .addFields(
                     {name: `\`${prefix}play\` \`${prefix}p\``, value: 'ngeplay lagu dari youtube'},
-                    {name: `\`${prefix}playskip\` \`${prefix}ps\``, value: 'langsung play tanpa antrian'},
+                    {name: `\`${prefix}playskip\` \`${prefix}ps\``, value: 'tambah lagu ke paling atas dan langsung play lagu itu'},
+                    {name: `\`${prefix}nowplaying\` \`${prefix}np\``, value: 'liat informasi lagu'},
                     {name: `\`${prefix}stop\` \`${prefix}dc\` \`${prefix}st\``, value: 'buat ngusir bot'},
                     {name: `\`${prefix}queue\` \`${prefix}q\``, value: 'liat antrian'},
                     {name: `\`${prefix}skip\` \`${prefix}s\` \`${prefix}sk\``, value: 'skip skip'},
-                    {name: `\`${prefix}sf\``, value: 'mengacak ngacak antrian'},
+                    {name: `\`${prefix}shuffle\` \`${prefix}sf\``, value: 'mengacak ngacak antrian'},
                     {name: `\`${prefix}loop\` \`${prefix}repeat\``, value: 'looping lagu (gak bisa dimatiin)'},
                     {name: `\`${prefix}autoplay\` \`${prefix}auto\` \`${prefix}ap\``, value: 'autoplay lagu kl antrian abis'},
                     {name: `\`${prefix}pause\``, value: 'pause lagunya'},
