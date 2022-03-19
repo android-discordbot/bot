@@ -28,7 +28,7 @@ for (const folder of commandFolders) {
 client.login(process.env.DISCORD_TOKEN);
 
 client.on('ready', () => {
-    console.log('Android is online!');
+    console.log(`${client.user.username} is online!`);
     
     memberCounter(client);
 });
