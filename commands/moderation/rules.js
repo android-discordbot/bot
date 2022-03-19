@@ -1,6 +1,6 @@
 module.exports = {
     name: 'rules',
-    description: "Just the rule in general!",
+    description: "Rules in General",
     execute(client, message, args, cmd, Discord) {
         const newEmbed = new Discord.MessageEmbed()
             .setColor('#12A5F1')

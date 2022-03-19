@@ -1,6 +1,6 @@
 module.exports = {
     name: 'ticket',
-    description: 'Open a ticket system!',
+    description: 'open a ticket!',
     async execute(client, message, args, cmd, Discord) {
         const channel = await message.guild.channels.create(`ticket: ${message.author.tag}`);
         channel.setParent('827913676433522699');

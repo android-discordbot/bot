@@ -1,14 +1,12 @@
-// const web = require('./web/app');
-const Discord = require('discord.js');
+require('./web/app');
 require('dotenv').config();
-const { resolveSoa } = require('dns');
+const Discord = require('discord.js');
 const fs = require('fs');
 const DisTube = require('distube');
-const { Recoverable } = require('repl');
-const memberCounter = require('./client/member-counter');
-const welcomeMessage = require('./client/welcome-message');
-const goodbyeMessage = require('./client/goodbye-message');
-const distubeClient = require('./client/distube-client');
+const memberCounter = require('./events/member-counter');
+const welcomeMessage = require('./events/welcome-message');
+const goodbyeMessage = require('./events/goodbye-message');
+const distubeClient = require('./events/distube-client');
 
 const prefix = process.env.PREFIX;
 
@@ -26,9 +24,6 @@ for (const folder of commandFolders) {
         client.commands.set(command.name, command);
     };
 };
-
-// // !webserver
-// web(client);
 
 client.login(process.env.DISCORD_TOKEN);
 

@@ -1,6 +1,6 @@
 module.exports = {
     name: 'anime',
-    description: "sends an anime gif from an API request",
+    description: "send an anime gif from API",
     async execute(client, message, args, cmd, Discord) {
         
         const Anime_Images = require('anime-images-api');

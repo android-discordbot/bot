@@ -26,7 +26,6 @@ module.exports = {
                 return;
             }
             
-            // *timed mute
             target.roles.set(allRoles).then(member => member.roles.add(muteRole)).catch(console.error);
             memberTarget.roles.add(muteRole.id);
             message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);

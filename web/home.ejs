@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android | Home</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav>
-        <h3>Android | Discord Bot </h3>
-        <p>Page for the details about each commands</p>
-    </nav>
-    
-    
-    <div class="dropdown">
-        <h3 class="dropdown-title">help</h3>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Android | Home</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <nav>
+            <h3>Android | Discord Bot</h3>
+            <p>The details about each commands</p>
+        </nav>
 
-        <div class="dropdown-content">
-            <p class="snippet">
-                Description: show all of the commands in embed form <br>
-                Aliases: h <br>
-                Example: <%= process.env.PREFIX %>help
-            </p>
+        <div class="dropdown">
+            <% if (commands.length > 0) { %> 
+                <% commands.forEach(command => { %>
+
+                    <h3 class="dropdown-title"><%= command.name %></h3>
+
+                    <div class="dropdown-content">
+                        <p class="snippet">
+                            Description: <%= command.description %><br />
+                            Aliases: <%= command.aliases %><br />
+                            Example: <%= process.env.PREFIX %><%= command.name %>
+                        </p>
+                    </div>
+
+                <% }) %> 
+            <% } else { %>
+                <p>There are no command to display</p>
+            <% } %>
         </div>
-    </div> 
-
-    <div class="dropdown">
-        <h3 class="dropdown-title">hey</h3>
-
-        <div class="dropdown-content">
-            <p class="snippet">
-                Description: say hai command <br>
-                Aliases: hey <br>
-                Example: <%= process.env.PREFIX %>hey
-            </p>
-        </div>
-    </div> 
-</body>
+    </body>
 </html>
