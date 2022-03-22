@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
         }
     }
 
-    // ?something is wrong here
+    // ?something's wrong here
     // const command = client.commands.get() || client.commands.find(a => a.aliases) || client.commands.find(n => n.name) && client.commands.find(d => d.description);
     let command  = commandBuffer.toString();
     console.log(command);
