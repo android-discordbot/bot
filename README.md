@@ -53,10 +53,10 @@ PREFIX = #
 ```
 6. Open terminal or cmd
 7. Run this command
-```
+```bash
 # change the path to where you downloaded the file
 cd C:\Users\username123\Downloads\bot-main
-# install all the missing dependencies
+# install all missing dependencies
 npm install
 # run the bot
 npm start
