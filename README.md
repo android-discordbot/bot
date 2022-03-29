@@ -34,7 +34,7 @@
 ### Account Needed
 1. Create a bot account [here](https://discord.com/developers/applications)
     - create a new application
-    - copy the bot token in the 'bot' section of your application
+    - click the application and in the 'bot' section of your application, copy the bot token
 2. Get a tenor api key [here](https://tenor.com/developer/keyregistration)
 3. Get the giphy api key [here](https://developers.giphy.com/dashboard/)
     - create an account first
@@ -44,7 +44,7 @@
 2. Code editor (optional), I use [Visual Studio Code](https://code.visualstudio.com/)
 3. Download the [souce code](https://codeload.github.com/android-discordbot/bot/zip/refs/heads/main)
 4. Extract zip file
-5. Create a `.env` file containing: 
+5. Create a `.env` file in the same folder as `main.js` file, containing: 
 ```
 DISCORD_TOKEN = yourtokenhere
 TENORKEY = yourtenorkeyhere
