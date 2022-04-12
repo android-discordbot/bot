@@ -54,5 +54,6 @@ client.on('message', message => {
         command.execute(client, message, args, cmd, Discord);
 	} catch (error) {
 		message.reply('salah woi');
+        console.log(error);
 	};
 });

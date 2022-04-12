@@ -1,5 +1,6 @@
 module.exports = {
     name: 'stats',
+    aliases: ["status"],
     description: "add or change the stats of the bot",
     execute(client, message, args, cmd, Discord) {
 
