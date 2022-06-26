@@ -29,7 +29,17 @@ module.exports = {
             return message.channel.send('Status changed succesfully');
             
         } else {
-            return message.channel.send('Invalid activity type.');
+            const statsEmbed = new Discord.MessageEmbed()
+                .setColor('#7FFF00')
+                .setTitle("Invalid Format")
+                .setDescription("Format : **#stats <type> <content>**")
+                .addFields(
+                    { name: '<type>', value: '`streaming` `listening` `watching` `competing`' },
+                    { name: '<content>', value: 'put anything here' },
+                    { name: '\u200B', value: '\u200B' },
+                    { name: 'example', value: '#stats playing games \n #stats listening commands' },
+                )
+            return message.channel.send(statsEmbed);
         };
 
         // here you tell the bot what the activity is

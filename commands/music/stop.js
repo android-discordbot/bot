@@ -3,13 +3,12 @@ module.exports = {
     aliases: ['st', 'dc'],
     description: 'stop the music and leave the channel',
     async execute(client, message, args, cmd, Discord) {
-        if (!message.member.voice.channel) return message.channel.send('masuk vc dulu tot');
+        if (!message.member.voice.channel) return message.channel.send('you need to be in a voice channel first 🤪');
         let queue = await client.distube.getQueue(message);
 
         if (queue) {
             client.distube.stop(message);
-
-            message.channel.send(`Bye I'm out biishh .. `);
+            message.channel.send(`Bye I'm out 🤭`);
         } else if (!queue) {
             return;
         };

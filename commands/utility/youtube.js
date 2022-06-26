@@ -5,7 +5,7 @@ module.exports = {
         if (message.member.roles.cache.has('702014991435563009')) {
             message.channel.send('https://www.youtube.com/channel/UC_MhnzBFd-YUFcToFCv8Qxw');
         } else {
-            message.channel.send('yah gak bisa :( oke silahkan coba lagi ');
+            message.channel.send(`nope can't do that 😠, ok try again`);
             message.member.roles.add('702014991435563009');
         }   
     }

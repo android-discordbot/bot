@@ -3,12 +3,16 @@ module.exports = {
     aliases: ['p'],
     description: 'Play a song and queue system',
     async execute(client, message, args, cmd, Discord) {
-        if (!message.member.voice.channel) return message.channel.send('masuk vc dulu tot');
+        if (!message.member.voice.channel) return message.channel.send('you need to be in a voice channel first 🤪');
 
         const music = args.join(' ');
 
-        if (!music) return message.channel.send('bisa kasih nama lagunya atau bisa juga kasih link');
+        if (!music) return message.channel.send('put the name of the song or you can put a link too');
 
-        client.distube.play(message, music);
+        client.distube.play(message.member.voice?.channel, music, {
+            member: message.member,
+            textChannel: message.channel,
+            message
+        });
     },
 };

@@ -3,7 +3,7 @@ module.exports = {
     aliases: ['q'],
     description: 'queue system',
     async execute(client, message, args, cmd, Discord) {
-        if (!message.member.voice.channel) return message.channel.send('masuk vc dulu tot');
+        if (!message.member.voice.channel) return message.channel.send('you need to be in a voice channel first 🤪');
         
         let server_queue = client.distube.getQueue(message);
 
@@ -62,12 +62,12 @@ module.exports = {
                     await reaction.users.remove(message.author.id);
                 } catch {
                     console.log();
-                    return message.channel.send("Error su");
+                    return message.channel.send("Error 😠");
                 };
             });
         } catch {
             console.log();
-            return message.channel.send("Ada Error SAT");
+            return message.channel.send("Error Again 😡");
         };
     },
 };
