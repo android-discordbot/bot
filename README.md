@@ -14,42 +14,78 @@
   <a href="#web">Web</a> •
 </p>
 
-<img src="https://android-discordbot.github.io/web/image/bot/meme-command.gif">
+<img style="margin-left: auto; margin-right: auto; display: block;" src="https://android-discordbot.github.io/web/image/bot/meme-command.gif">
 
 ---
 # 📩 Features
-- [x] Music Command (play, skip, stop, queue, autoplay, )
-- [x] Moderation (kick, ban, mute, timed mute, unmute, ticket)
-- [x] Reactionrole
-- [x] GIF ([tenor](https://tenor.com/), [giphy](https://giphy.com/))
-- [x] Search image from google
-- [x] Meme from reddit
+### Fun
+- [x] GIF ➡ [tenor](https://tenor.com/) and [giphy](https://giphy.com/)
+- [x] Games ➡ guess the number
+- [x] Reddit Memes
+- [x] Search an image from google
 - [x] Weather Forecast
-- [x] View a member avatar
-- [x] Changeable bot status
-- [x] Games (guess the number)
-- [x] Emojify text
+- [x] View a member's avatar larger
+- [x] Changeable Bot Status
+- [x] Emojify Text
+- [x] Ping
+- [x] Clear Messages
+
+### Moderation
+- [x] Kick
+- [x] Ban
+- [x] Mute
+- [x] Timed Mute
+- [x] Unmute
+- [x] Ticket
+- [x] Rules
+- [x] Reactionrole
+
+### Music with [Distube](https://distube.js.org/#/)
+- [x] Play
+- [x] Skip
+- [x] Stop
+- [x] Pause
+- [x] Resume
+- [x] Loop
+- [x] Shuffle
+- [x] Self Mute
+- [x] Self Deafen
+- [x] Seek
+- [x] Dynamic Queue System 
+- [x] Autoplay Related Music
+
 ---
 # 🔨 Use This Bot
 ### Account Needed
 1. Create a bot account [here](https://discord.com/developers/applications)
     - create a new application
-    - click the application and in the 'bot' section of your application, copy the bot token
+    - click the application that you just created
+    - in the 'bot' section of your application, copy the bot token
 2. Get a tenor api key [here](https://tenor.com/developer/keyregistration)
 3. Get the giphy api key [here](https://developers.giphy.com/dashboard/)
-    - create an account first
+    - create an account
+    - create an app
+    - copy the api key
+4. Get Spotify Client ID and Client Secret [here](https://developer.spotify.com/dashboard/login)
+    - login
+    - create an app
+    - click the app
+    - copy the client id and the client secret
+
 
 ### Set Up Bot
-1. You need [Node.js](https://nodejs.org/) installed on your system
+1. You need [Node.js](https://nodejs.org/) installed on your system. Use the LTS version
 2. Code editor (optional), I use [Visual Studio Code](https://code.visualstudio.com/)
 3. Download the [souce code](https://codeload.github.com/android-discordbot/bot/zip/refs/heads/main)
 4. Extract zip file
 5. Create a `.env` file in the same folder as `main.js` file, containing: 
-```
+```text
 DISCORD_TOKEN = yourtokenhere
 TENORKEY = yourtenorkeyhere
 giphyAPIKey = yourgiphyapikeyhere
 PREFIX = #
+clientId = spotifyclientid
+clientSecret = spotifyclientsecret
 ```
 6. Open terminal or cmd
 7. Run this command

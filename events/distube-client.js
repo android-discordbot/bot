@@ -1,31 +1,37 @@
+const { SpotifyPlugin } = require("@distube/spotify");
+const { SoundCloudPlugin } = require("@distube/soundcloud");
+
+let spotifyoptions = {
+    parallel: true,
+    emitEventsAfterFetching: true,
+}
+
+spotifyoptions.api = {
+    clientId: process.env.clientId,
+    clientSecret: process.env.clientSecret,
+}
+
+
 module.exports = async (client, Discord, DisTube) => {
     client.distube = new DisTube.default(client, { 
         searchSongs: 0, 
         emitNewSongOnly: true, 
         leaveOnFinish: true, 
-        youtubeDL: false 
+        youtubeDL: false,
+        nsfw: true,
+        ytdlOptions: {
+            quality: "highestaudio",
+            format: "audioonly",
+        },
+        plugins: [
+            new SpotifyPlugin(spotifyoptions),
+            new SoundCloudPlugin()
+        ]
     });
     
     client.distube
         .on("playSong", (queue, song) => {
-            if (song.playlist) {
-                const playlistEmbed = new Discord.MessageEmbed()
-                    .setAuthor('Added Playlist')
-                    .setTitle(song.playlist.name)
-                    .setURL(song.playlist.url)
-                    .setColor("#7FFF00")
-                    .setThumbnail(song.thumbnail)
-                    .setDescription(`**🎵  Now playing [${song.name}](${song.url})  🎵 **- \`${song.formattedDuration}\``)
-                    .addFields(
-                        { name: `Playlist Songs:`, value: `${song.playlist.songs.length} songs` },
-                        { name: `Playlist Duration:`, value: `${song.playlist.formattedDuration}` }
-                        )
-                    .setTimestamp()
-                    .setFooter(`Requested by: ${song.user.username}`)
-                queue.textChannel.send(playlistEmbed);
-            } else {
-                queue.textChannel.send(`🎵  Playing ***${song.name}***  🎵`);
-            }
+            queue.textChannel.send(`🎵  Playing ***${song.name}***  🎵`);
         })
 
         .on("addSong", (queue, song) => { 
@@ -33,7 +39,19 @@ module.exports = async (client, Discord, DisTube) => {
         })
 
         .on("addList", (queue, playlist) => {
-            queue.textChannel.send(`Added **${playlist.name}** playlist \`${playlist.songs.length} songs\` to the queue`);
+            const playlistEmbed = new Discord.MessageEmbed()
+                .setAuthor('Added Playlist')
+                .setTitle(playlist.name)
+                .setURL(playlist.url)
+                .setColor("#7FFF00")
+                .setThumbnail(playlist.thumbnail)
+                .addFields(
+                    { name: `Playlist Songs:`, value: `${playlist.songs.length} songs` },
+                    { name: `Playlist Duration:`, value: `${playlist.formattedDuration}` }
+                    )
+                .setTimestamp()
+                .setFooter(`Requested by: ${playlist.user.username}`)
+            queue.textChannel.send(playlistEmbed);
         })
 
         .on("error", (channel, err) => {

@@ -12,14 +12,15 @@ module.exports = {
         if(!song) return message.channel.send('No Music Is Being Played.');
         
         try {
-            const duration = song.formattedDuration.split(':').reverse().reduce((prev, curr, i) => prev + curr * Math.pow(60, i), 0);
+            // const duration = song.formattedDuration.split(':').reverse().reduce((prev, curr, i) => prev + curr * Math.pow(60, i), 0);
 
-            const seek = Math.floor((server_queue.connection.dispatcher.streamTime - server_queue.connection.dispatcher.pausedTime) / 1000) + 1;
+            // const seek = Math.floor((server_queue.connection.dispatcher.streamTime - server_queue.connection.dispatcher.pausedTime) / 1000) + 1;
 
-            const actualSeek = new Date(seek * 1000).toISOString().substr(11, 8);
+            // const actualSeek = new Date(seek * 1000).toISOString().substr(11, 8);
 
             // const timeLeft = new Date((duration - actualSeek) * 1000).toISOString().substr(11, 8);
             
+            const actualSeek = Math.floor(song.formattedCurrentTime / 1000);
             let finalTotal = song.formattedDuration;
     
             const npEmbed = new Discord.MessageEmbed()
@@ -35,7 +36,7 @@ module.exports = {
             message.channel.send(npEmbed);
         } catch (error) {
             console.log(error);
-            message.channel.send(`Oops there's an error apperrently`);
+            message.channel.send(`Still trying to fix it 😖`);
         };
     },
 };
