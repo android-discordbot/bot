@@ -1,6 +1,6 @@
 module.exports = {
     name: 'reactionrole3',
-    description: "Sets up a third reaction role message!",
+    description: "sets up a third reaction role message",
     async execute(client, message, args, cmd, Discord) {
         const channel = '819186675576995850';
         const ValorantRole = message.guild.roles.cache.get("821030068884996136");

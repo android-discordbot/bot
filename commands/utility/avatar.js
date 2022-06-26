@@ -1,7 +1,7 @@
 module.exports = {
     name: 'avatar',
     aliases: ['pp', 'profile'],
-    description: "view avatar of the user!",
+    description: "view avatar of the user",
     execute(client, message, args, cmd, Discord) {        
         let member = message.mentions.users.first() || message.author;
 

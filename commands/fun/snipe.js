@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 module.exports = {
     name: 'snipe',
-    description: "snipe some messages 🔫",
+    description: "snipe some message 🔫",
     async execute(client, message, args, cmd, Discord) {
         let url = `https://g.tenor.com/v1/search?q=snipe&key=${process.env.TENORKEY}&ContentFilter=off`;
         

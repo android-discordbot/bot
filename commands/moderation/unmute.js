@@ -1,7 +1,7 @@
 module.exports = {
     name: 'unmute',
     aliases: ["um"],
-    description: "This unmutes a member by removing it from the mute role",
+    description: "unmutes a member by removing it from the mute role",
     execute(client, message, args, cmd, Discord) {
         const target = message.guild.member(message.mentions.users.first());
         if (target) {

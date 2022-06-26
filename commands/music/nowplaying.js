@@ -1,7 +1,7 @@
 module.exports = {
     name: 'nowplaying',
     aliases: ['np'],
-    description: 'show what music is being played',
+    description: 'show detail what music is being played',
     async execute(client, message, args, cmd, Discord) {
         if (!message.member.voice.channel) return message.channel.send('you need to be in a voice channel first 🤪');
         

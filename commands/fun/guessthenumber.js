@@ -1,7 +1,7 @@
 module.exports = {
     name: 'guessthenumber',
     aliases: ['gtn'],
-    description: "Play guess the number game",
+    description: "play guess the number game",
     execute(client, message, args, cmd, Discord) {
 	    let number = Math.ceil(Math.random() * 100);
         let finished = false;

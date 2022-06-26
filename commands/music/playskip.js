@@ -1,7 +1,7 @@
 module.exports = {
     name: 'playskip',
     aliases: ['ps'],
-    description: 'play the song on top of the queue',
+    description: 'add the song top of the queue and then skip to it',
     async execute(client, message, args, cmd, Discord) {
         if (!message.member.voice.channel) return message.channel.send('you need to be in a voice channel first 🤪');
 

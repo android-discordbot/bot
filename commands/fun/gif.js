@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 module.exports = {
     name: 'gif',
-    description: "Sends a gif from tenor",
+    description: "sends a gif from tenor",
     async execute(client, message, args, cmd, Discord) {
         let keywords = args.join(' ');
 

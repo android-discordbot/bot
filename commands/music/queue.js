@@ -1,7 +1,7 @@
 module.exports = {
     name: 'queue',
     aliases: ['q'],
-    description: 'queue system',
+    description: 'dynamic queue system',
     async execute(client, message, args, cmd, Discord) {
         if (!message.member.voice.channel) return message.channel.send('you need to be in a voice channel first 🤪');
         

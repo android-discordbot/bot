@@ -1,7 +1,7 @@
 module.exports = {
     name: 'selfmute',
     aliases: ['sm'],
-    description: 'self mute bot',
+    description: 'mute the bot',
     async execute(client, message, args, cmd, Discord) {
         if (!message.member.voice.channel) return message.channel.send('you need to be in a voice channel first 🤪');
 

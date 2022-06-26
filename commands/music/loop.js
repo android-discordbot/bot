@@ -1,7 +1,7 @@
 module.exports = {
     name: 'loop',
     aliases: ['repeat'],
-    description: 'repeating the song',
+    description: 'put the song on loop',
     async execute(client, message, args, cmd, Discord) {
         if (!message.member.voice.channel) return message.channel.send('you need to be in a voice channel first 🤪');
         

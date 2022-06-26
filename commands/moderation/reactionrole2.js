@@ -1,6 +1,6 @@
 module.exports = {
     name: 'reactionrole2',
-    description: "Sets up a second reaction role message!",
+    description: "sets up a second reaction role message",
     async execute(client, message, args, cmd, Discord) {
         const channel = '819186675576995850';
         const KONTOLRole = message.guild.roles.cache.get("821029714709708800");

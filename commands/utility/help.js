@@ -1,7 +1,7 @@
 module.exports = {
   name: "help",
   aliases: ["h", "d", "details", "detail"],
-  description: "This sends the list of commands!",
+  description: "sends a link to a website that list all of the commands",
   execute(client, message, args, cmd, Discord) {
     const embed = new Discord.MessageEmbed()
       .setTitle(`Click Here `)

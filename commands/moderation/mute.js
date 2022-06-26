@@ -3,7 +3,7 @@ const ms = require('ms');
 module.exports = {
     name: 'mute',
     aliases: ["m"],
-    description: "This mutes a member by adding to a 'Mute' role",
+    description: "mutes a member by adding to a 'Mute' role",
     execute(client, message, args, cmd, Discord) {
         const target = message.guild.member(message.mentions.users.first());
         
