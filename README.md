@@ -92,8 +92,10 @@ clientSecret = spotifyclientsecret
 ```bash
 # change the path to where you downloaded the file
 cd C:\Users\username123\Downloads\bot-main
+
 # install all missing dependencies
 npm install
+
 # run the bot
 npm start
 ```
