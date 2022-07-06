@@ -6,7 +6,7 @@ module.exports = {
     async execute(client, message, args, cmd, Discord) {
         let keywords = args.join(' ');
 
-        if (!keywords) return message.channel.send('kasih kata kunci nya bos');
+        if (!keywords) return message.channel.send('please provide a keyword');
 
         let url = `https://g.tenor.com/v1/search?q=${keywords}&key=${process.env.TENORKEY}&ContentFilter=off`;
         
@@ -14,11 +14,15 @@ module.exports = {
         
         let json = await respose.json();
 
-        const index = Math.floor(Math.random() * json.results.length);
+        let index = Math.floor(Math.random() * json.results.length);
 
-        let gif = json.results[index].url;
-
-        // *sending gif by regular message
-        message.channel.send(gif);
+        let gif = json.results[index].media[0].gif.url;
+        
+        const gifEmbed = new Discord.MessageEmbed()
+            .setColor('#00ffff')
+            .setImage(gif)
+            .setTitle(`GIF ${keywords}`)
+            .setFooter(`Requested by: ${message.author.username}`);
+        message.channel.send(gifEmbed);
     },
 };

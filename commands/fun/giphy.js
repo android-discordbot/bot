@@ -5,11 +5,11 @@ module.exports = {
     aliases: ['gip', 'gipy'],
     description: "gif command from giphy",
     async execute(client, message, args, cmd, Discord) {
-        const msg = args.join(' ');
+        const keywords = args.join(' ');
         
-        if (!msg) return message.channel.send('please provide a keyword');
+        if (!keywords) return message.channel.send('please provide a keyword');
 
-        let res = fetch(`https://api.giphy.com/v1/gifs/search?q=${msg}&api_key=${process.env.giphyAPIKey}&limit=1`)
+        let res = fetch(`https://api.giphy.com/v1/gifs/search?q=${keywords}&api_key=${process.env.giphyAPIKey}&limit=1`)
             .then((res) => res.json())
             .then((json) => {
                 if (json.data.length <= 0) return message.channel.send('No GIFs found!');

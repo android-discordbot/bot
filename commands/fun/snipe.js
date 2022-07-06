@@ -10,10 +10,15 @@ module.exports = {
         
         let json = await respose.json();
 
-        const index = Math.floor(Math.random() * json.results.length);
+        let index = Math.floor(Math.random() * json.results.length);
 
-        let gif = json.results[index].url;
+        let gif = json.results[index].media[0].gif.url;
         
-        message.channel.send(gif);
+        const gifEmbed = new Discord.MessageEmbed()
+            .setColor('BROWN')
+            .setImage(gif)
+            .setTitle(`SNIPE :gun:`)
+            .setFooter(`Requested by: ${message.author.username}`);
+        message.channel.send(gifEmbed);
     },
 };
