@@ -58,7 +58,7 @@ module.exports = async (client, Discord, DisTube) => {
             const errEmbed = new Discord.MessageEmbed()
                 .setTitle('An Error Encountered')
                 .setColor('RED')
-                .addFields({name: err, value: `\u200b`})
+                .addFields({ name: err, value: `\u200b` })
                 .setTimestamp()	
             channel.send(errEmbed);
         })

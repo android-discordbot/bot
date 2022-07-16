@@ -9,10 +9,10 @@ module.exports = {
 
         if (!music) return message.channel.send('put the name of the song or you can put a link too');
 
-        client.distube.play(message.member.voice?.channel, music, {
-            member: message.member,
+        client.distube.play(message.member.voice.channel, music, {
+            message,
             textChannel: message.channel,
-            message
+            member: message.member,
         });
     },
 };

@@ -1,7 +1,7 @@
 require('dotenv').config();
 const Discord = require('discord.js');
 const fs = require('fs');
-const DisTube = require('distube');
+const DisTube = require("distube");
 const memberCounter = require('./events/member-counter');
 const welcomeMessage = require('./events/welcome-message');
 const goodbyeMessage = require('./events/goodbye-message');
