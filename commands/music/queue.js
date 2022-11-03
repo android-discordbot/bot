@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'queue',
     aliases: ['q'],
@@ -7,33 +9,11 @@ module.exports = {
         
         let server_queue = client.distube.getQueue(message);
 
-        if (!server_queue|| !server_queue.songs.length) return message.channel.send('Queue is empty! 📪');
-
-        // queue function
-        function generateQueueEmbed(message, queue) {
-            const embeds = [];
-            let k = 10;
-            for (let i = 0; i < queue.length; i += 10) {
-                const current = queue.slice(i, k);
-                let j = i;
-                k += 10;
-                const info = current.map((track) => `**${++j}**. [${track.name}](${track.url}) - \`${track.formattedDuration}\``).join("\n\n");
-        
-                const embed = new Discord.MessageEmbed()
-                    .setAuthor(`${message.guild.name} | Song Queue`, message.guild.iconURL())
-                    .setColor("#7FFF00")
-                    .setDescription(info)
-                    .setTimestamp()
-                    .setFooter(`Queue Duration: ${server_queue.formattedDuration}`)
-                embeds.push(embed);
-            };
-            return embeds;
-        };
-
+        if (!server_queue || !server_queue.songs.length) return message.channel.send('Queue is empty! 📪');
 
         try {
             let currentPage = 0;
-            const embeds = generateQueueEmbed(message, server_queue.songs);
+            const embeds = generateQueueEmbed(message, server_queue.songs, server_queue.formattedDuration);
             const queueEmbed = await message.channel.send(`**Current Page - ${currentPage + 1}/${embeds.length}**`, embeds[currentPage]);
             await queueEmbed.react("⬅️");
             await queueEmbed.react("❌");
@@ -60,14 +40,35 @@ module.exports = {
                         
                     };
                     await reaction.users.remove(message.author.id);
-                } catch {
-                    console.log();
+                } catch (error) {
+                    console.error(error);
                     return message.channel.send("Error 😠");
                 };
             });
-        } catch {
-            console.log();
+        } catch (error) {
+            console.error(error);
             return message.channel.send("Error Again 😡");
         };
     },
+};
+
+// queue function
+function generateQueueEmbed(message, queue, duration) {
+    const embeds = [];
+    let k = 10;
+    for (let i = 0; i < queue.length; i += 10) {
+        const current = queue.slice(i, k);
+        let j = i;
+        k += 10;
+        const info = current.map((track) => `**${++j}**. [${track.name}](${track.url}) - \`${track.formattedDuration}\``).join("\n\n");
+
+        const embed = new Discord.MessageEmbed()
+            .setAuthor(`${message.guild.name} | Song Queue`, message.guild.iconURL())
+            .setColor("#7FFF00")
+            .setDescription(info)
+            .setTimestamp()
+            .setFooter(`Queue Duration: ${duration}`)
+        embeds.push(embed);
+    };
+    return embeds;
 };
