@@ -1,28 +1,28 @@
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
 module.exports = {
-    name: 'gif',
-    description: "sends a gif from tenor",
-    async execute(client, message, args, cmd, Discord) {
-        let keywords = args.join(' ');
+  name: "gif",
+  description: "sends a gif from tenor",
+  async execute(client, message, args, cmd, Discord) {
+    const keywords = args.join(" ");
 
-        if (!keywords) return message.channel.send('please provide a keyword');
+    if (!keywords) return message.channel.send("Please provide a keyword!");
 
-        let url = `https://g.tenor.com/v1/search?q=${keywords}&key=${process.env.TENORKEY}&ContentFilter=off`;
-        
-        let respose = await fetch(url);
-        
-        let json = await respose.json();
+    const url = `https://g.tenor.com/v1/search?q=${keywords}&key=${process.env.TENORKEY}&ContentFilter=off`;
 
-        let index = Math.floor(Math.random() * json.results.length);
+    const response = await fetch(url);
 
-        let gif = json.results[index].media[0].gif.url;
-        
-        const gifEmbed = new Discord.MessageEmbed()
-            .setColor('#00ffff')
-            .setImage(gif)
-            .setTitle(`GIF ${keywords}`)
-            .setFooter(`Requested by: ${message.author.username}`);
-        message.channel.send(gifEmbed);
-    },
+    const json = await response.json();
+
+    const index = Math.floor(Math.random() * json.results.length);
+
+    const gif = json.results[index].media[0].gif.url;
+
+    const gifEmbed = new Discord.MessageEmbed()
+      .setColor("#00ffff")
+      .setImage(gif)
+      .setTitle(`GIF ${keywords}`)
+      .setFooter(`Requested by: ${message.author.username}`);
+    message.channel.send(gifEmbed);
+  },
 };
