@@ -3,14 +3,14 @@
   
   <a href="https://android-discordbot.github.io/web/">
     <img
-      src="https://cdn.discordapp.com/attachments/869408567629873212/956582329906790470/android2_removed_cropped.png"
-      style="border-radius: 75%"
+      src="./assets/android2_removed_cropped.png"
+      style="border-radius: 0%"
     >
   </a>
 
   <br>
 
-ↁ𝖗𝖔𝖎𝖉
+  ↁ𝖗𝖔𝖎𝖉
 
   <br>
 </h1>
@@ -134,7 +134,7 @@ clientSecret = "spotifyclientsecret"
 6. Open terminal or cmd
 7. Run this command
 
-```bash
+```powershell
 # change the path to where you downloaded the file
 cd C:\Users\username123\Downloads\bot-main
 
