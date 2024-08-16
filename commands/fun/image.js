@@ -12,20 +12,26 @@ module.exports = {
   aliases: ["i"],
   description: "sends an image from google",
   async execute(client, message, args, cmd, Discord) {
-    const query = args.join(" ");
-    if (!query) return message.channel.send("Please enter a keyword");
+    try {
+      const query = args.join(" ");
+      if (!query) return message.channel.send("Please enter a keyword");
+  
+      const random = Math.floor(Math.random() * 90 + 0);
+      console.log(random);
+  
+      const results = await google.scrape(query, 100);
+  
+      const image = results[random].url;
+  
+      let embedpic = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .setTitle(`An image of *${query}*`)
+        .setImage(image);
+      message.channel.send(embedpic);
 
-    const random = Math.floor(Math.random() * 90 + 0);
-    console.log(random);
-
-    const results = await google.scrape(query, 100);
-
-    const image = results[random].url;
-
-    let embedpic = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setTitle(`An image of *${query}*`)
-      .setImage(image);
-    message.channel.send(embedpic);
+    } catch (error) {
+      console.error(error);
+      return message.channel.send("**Oops there's an error.** 😭");
+    }
   },
 };

@@ -26,8 +26,8 @@ module.exports = {
 
       message.channel.send(memeEmbed);
     } catch (error) {
-      message.channel.send("There's an error in the command!");
       console.error(error);
+      return message.channel.send("There's an error in the command!");
     }
   },
 };
