@@ -3,11 +3,12 @@ module.exports = {
   aliases: ["np"],
   description: "show detail what music is being played",
   async execute(client, message, args, cmd, Discord) {
-    if (!message.member.voice.channel)
+    if (!message.member.voice.channel) {
       return message.channel.send("You need to be in a voice channel first 🤪");
+    }
 
     const server_queue = client.distube.getQueue(message);
-    if (!server_queue) return message.channel.send("No music is playing.");
+    if (!server_queue) return message.channel.send("📫 Queue is empty.");
 
     const song = server_queue.songs[0];
     if (!song) return message.channel.send("No music is playing.");

@@ -5,13 +5,15 @@ module.exports = {
   aliases: ["q"],
   description: "dynamic queue system",
   async execute(client, message, args, cmd, Discord) {
-    if (!message.member.voice.channel)
+    if (!message.member.voice.channel) {
       return message.channel.send("You need to be in a voice channel first 🤪");
+    }
 
     let server_queue = client.distube.getQueue(message);
 
-    if (!server_queue || !server_queue.songs.length)
-      return message.channel.send("Queue is empty! 📪");
+    if (!server_queue || !server_queue.songs.length) {
+      return message.channel.send("📫 Queue is empty!");
+    }
 
     try {
       let currentPage = 0;
