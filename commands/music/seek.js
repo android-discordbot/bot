@@ -3,10 +3,11 @@ module.exports = {
   aliases: ["jump"],
   description: "fast forward the song",
   async execute(client, message, args, cmd, Discord) {
-    if (!message.member.voice.channel)
+    if (!message.member.voice.channel) {
       return message.channel.send("you need to be in a voice channel first. 🤪");
+    }
 
-    if (!args[0]) return message.channel.send("Put time to fast forward. Example: **#seek 10**.");
+    if (!args[0]) return message.channel.send(`Put time to fast forward. Example: **${process.env.PREFIX}seek 10**.`);
     if (isNaN(args[0])) return message.channel.send("Please put just the number, nothing else.");
 
     const number = Number(args[0]);
