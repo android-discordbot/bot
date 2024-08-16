@@ -54,13 +54,22 @@
 - [x] GIF ➡ [tenor](https://tenor.com/) and [giphy](https://giphy.com/)
 - [x] Games ➡ guess the number
 - [ ] Reddit Memes
-- [x] Search an image from google
+- [ ] Search an image from google
 - [x] Weather Forecast
 - [x] View a member's avatar larger
 - [x] Changeable Bot Status
-- [ ] Emojify Text
+- [x] Emojify Text
 - [x] Ping
 - [x] Clear Messages
+- [ ] Anime GIFs
+- [x] Clear Messages
+- [x] Help ➡ Through a website
+- [x] Invite Link
+
+## Other Things
+- [x] Send Message if a member is leaving the server
+- [x] Send Message if a member is joining the server
+- [x] Member's counter
 
 ## Moderation
 
@@ -69,24 +78,29 @@
 - [x] Mute
 - [x] Timed Mute
 - [x] Unmute
-- [x] Ticket
+- [ ] Ticketing System
 - [x] Rules
-- [x] Reactionrole
+- [x] Reaction Role
 
 ## Music with [Distube](https://distube.js.org/#/)
 
-- [ ] Play
-- [ ] Skip
-- [ ] Stop
-- [ ] Pause
-- [ ] Resume
-- [ ] Loop
-- [ ] Shuffle
-- [ ] Self Mute
-- [ ] Self Deafen
-- [ ] Seek
-- [ ] Dynamic Queue System
-- [ ] Autoplay Related Music
+- [x] Play
+  - [ ] Spotify
+  - [x] YouTube
+  - [ ] SoundCloud
+- [x] Play Skip
+- [x] Now Playing
+- [x] Skip
+- [x] Stop
+- [x] Pause
+- [x] Resume
+- [x] Loop
+- [x] Shuffle
+- [x] Self Mute
+- [x] Self Deafen
+- [x] Seek
+- [x] Dynamic Queue System
+- [x] Autoplay Related Music
 
 ---
 
