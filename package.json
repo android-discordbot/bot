@@ -9,8 +9,8 @@
   "author": "Udin",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.8.0",
-    "@discordjs/voice": "^0.10.0",
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/voice": "^0.17.0",
     "@distube/soundcloud": "^1.1.0",
     "@distube/spotify": "^1.2.1",
     "@distube/ytdl-core": "^4.11.7",
@@ -28,7 +28,7 @@
     "weather-js": "^2.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.33.0",
-    "prettier": "^2.8.3"
+    "eslint": "^9.3.0",
+    "prettier": "^3.2.5"
   }
 }
