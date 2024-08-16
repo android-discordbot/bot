@@ -21,7 +21,7 @@ module.exports = {
     const gifEmbed = new Discord.MessageEmbed()
       .setColor("#00ffff")
       .setImage(gif)
-      .setTitle(`GIF ${keywords}`)
+      .setTitle(keywords)
       .setFooter(`Requested by: ${message.author.username}`);
     message.channel.send(gifEmbed);
   },

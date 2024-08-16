@@ -8,7 +8,7 @@ module.exports = {
       memberTarget.ban();
       message.channel.send("User has been banned.");
     } else {
-      message.channel.send(`You couldn't ban that member!`);
+      message.channel.send("You couldn't ban that member!");
     }
   },
 };

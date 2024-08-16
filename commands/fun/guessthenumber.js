@@ -9,7 +9,7 @@ module.exports = {
     message.channel.send(
       new Discord.MessageEmbed()
         .setTitle(`Guess The Number`)
-        .setDescription(`Guess a number (1-100), you have \`1 minute\``)
+        .setDescription("Guess a number (1-100), you have `1 minute`")
         .setColor("RANDOM")
         .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
@@ -30,7 +30,7 @@ module.exports = {
         let split = msg.content.split(/ +/);
         let attempt = split.shift();
 
-        if (isNaN(attempt)) return message.reply(`You must choose an actual number`);
+        if (isNaN(attempt)) return message.reply("You must choose an actual number");
 
         tries++;
 
@@ -45,7 +45,7 @@ module.exports = {
 
         message.channel.send(
           new Discord.MessageEmbed()
-            .setTitle(`Correct`)
+            .setTitle("Correct")
             .setDescription(`${parseInt(msg)} is correct!`)
             .setFooter(`It took you ${tries} tries to get it`)
             .setTimestamp()

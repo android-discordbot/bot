@@ -8,7 +8,7 @@ module.exports = {
       memberTarget.kick();
       message.channel.send("User has been kicked.");
     } else {
-      message.channel.send(`You couldn't kick that member!`);
+      message.channel.send("You couldn't kick that member!");
     }
   },
 };

@@ -42,8 +42,8 @@ module.exports = async (client, Discord, DisTube) => {
         .setColor("#7FFF00")
         .setThumbnail(playlist.thumbnail)
         .addFields(
-          { name: `Playlist Songs:`, value: `${playlist.songs.length} songs` },
-          { name: `Playlist Duration:`, value: `${playlist.formattedDuration}` }
+          { name: "Playlist Songs:", value: `${playlist.songs.length} songs` },
+          { name: "Playlist Duration:", value: `${playlist.formattedDuration}` }
         )
         .setTimestamp()
         .setFooter(`Requested by: ${playlist.user.username}`);
@@ -54,14 +54,14 @@ module.exports = async (client, Discord, DisTube) => {
       const errEmbed = new Discord.MessageEmbed()
         .setTitle("An Error Encountered")
         .setColor("RED")
-        .addFields({ name: err, value: `\u200b` })
+        .addFields({ name: err, value: "\u200b" })
         .setTimestamp();
       channel.send(errEmbed);
     })
 
     .on("finish", (queue) => {
-      queue.textChannel.send(`Yey I've finnished the queue. Leaving the voice channel now. 😥`);
+      queue.textChannel.send("Yay I've finnished the queue. Leaving the voice channel now. 😥");
     })
 
-    .on("empty", (queue) => queue.textChannel.send(`Channel is empty, so I'm Leaving.. 😢`));
+    .on("empty", (queue) => queue.textChannel.send("Channel is empty, so I'm Leaving.. 😢"));
 };

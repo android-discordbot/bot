@@ -17,7 +17,7 @@ module.exports = {
     const gifEmbed = new Discord.MessageEmbed()
       .setColor("BROWN")
       .setImage(gif)
-      .setTitle(`SNIPE 🔫`)
+      .setTitle("SNIPE 🔫")
       .setFooter(`Requested by: ${message.author.username}`);
     message.channel.send(gifEmbed);
   },
